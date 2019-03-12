@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="同源限制： （1） Cookie、LocalStorage 和 IndexDB 无法读取。 （2） DOM 无法获得。 （3） Ajax 请求不能发送。 规避方法： 一. Cookie A网页是http://w1.example.com/a.html，B网页是http://w2.example.com/b.html 设置相同的document.domain = ‘example.com’; 就可以">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2019/02/26/hello-world/index.html">
+<meta property="og:title" content="同源与跨域">
+<meta property="og:url" content="http://yoursite.com/2019/03/12/同源与跨域/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="同源限制： （1） Cookie、LocalStorage 和 IndexDB 无法读取。 （2） DOM 无法获得。 （3） Ajax 请求不能发送。 规避方法： 一. Cookie A网页是http://w1.example.com/a.html，B网页是http://w2.example.com/b.html 设置相同的document.domain = ‘example.com’; 就可以">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-26T02:47:13.903Z">
+<meta property="og:updated_time" content="2019-03-12T11:57:10.038Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="同源与跨域">
+<meta name="twitter:description" content="同源限制： （1） Cookie、LocalStorage 和 IndexDB 无法读取。 （2） DOM 无法获得。 （3） Ajax 请求不能发送。 规避方法： 一. Cookie A网页是http://w1.example.com/a.html，B网页是http://w2.example.com/b.html 设置相同的document.domain = ‘example.com’; 就可以">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/26/hello-world/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/12/同源与跨域/">
 
 
 
 
 
-  <title>Hello World | Hexo</title>
+  <title>同源与跨域 | Hexo</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/26/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/12/同源与跨域/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">同源与跨域</h1>
         
 
         <div class="post-meta">
@@ -261,8 +261,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-26T10:47:13+08:00">
-                2019-02-26
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-12T19:56:50+08:00">
+                2019-03-12
               </time>
             
 
@@ -299,15 +299,72 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <p><strong>同源限制：</strong></p>
+<p>（1） Cookie、LocalStorage 和 IndexDB 无法读取。</p>
+<p>（2） DOM 无法获得。</p>
+<p>（3） Ajax 请求不能发送。</p>
+<p><strong>规避方法：</strong></p>
+<p><strong>一. Cookie</strong></p>
+<p>A网页是<a href="http://w1.example.com/a.html，B网页是http://w2.example.com/b.html" target="_blank" rel="noopener">http://w1.example.com/a.html，B网页是http://w2.example.com/b.html</a></p>
+<p>设置相同的document.domain = ‘example.com’;</p>
+<p>就可以共享Cookie</p>
+<p>服务器也可以在设置Cookie的时候，指定Cookie的所属域名为一级域名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-Cookie: key=value; domain=.example.com; path=/</span><br></pre></td></tr></table></figure>
+<p><strong>二.iframe</strong></p>
+<p>如果两个窗口一级域名相同，只是二级域名不同，那么设置上一节介绍的document.domain属性，就可以规避同源政策，拿到DOM。</p>
+<p><strong>2.1 片段识别符</strong></p>
+<p><strong>｛方法：父窗口改变#后面的片段识别符，放上data。然后子窗口监听window.onhashchange事件，再通过document.location.hash接收#后面的data。｝</strong></p>
+<p>片段标识符（fragment<br>identifier）指的是，URL的#号后面的部分，比如<a href="http://example.com/x.html\#fragment的\#fragment。" target="_blank" rel="noopener">http://example.com/x.html\#fragment的\#fragment。</a></p>
+<p>父窗口可以把信息写入子窗口的片段标识符。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var src = originURL + &apos;\#&apos; + data;</span><br><span class="line"></span><br><span class="line">document.getElementById(&apos;myIFrame&apos;).src = src;</span><br></pre></td></tr></table></figure>
+<p>子窗口通过监听hashchange事件得到通知。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">window.onhashchange = checkMessage;</span><br><span class="line"></span><br><span class="line">function checkMessage() &#123;</span><br><span class="line"></span><br><span class="line">var message = window.location.hash;</span><br><span class="line"></span><br><span class="line">// ...</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>同样的，子窗口也可以改变父窗口的片段标识符。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">parent.location.href= target + &quot;\#&quot; + hash;</span><br></pre></td></tr></table></figure>
+<p><strong>2.3 window.postMessage</strong></p>
+<p>{H5方法：postMessage}</p>
+<p>父窗口<a href="http://aaa.com/" target="_blank" rel="noopener">http://aaa.com</a>向子窗口<a href="http://bbb.com/" target="_blank" rel="noopener">http://bbb.com</a>发消息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var popup = window.open(&apos;http://bbb.com&apos;, &apos;title&apos;);</span><br><span class="line"></span><br><span class="line">popup.postMessage(&apos;Hello World!&apos;, &apos;http://bbb.com&apos;);</span><br></pre></td></tr></table></figure>
+<p>子窗口向父窗口发送消息的写法类似。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.opener.postMessage(&apos;Nice to see you&apos;, &apos;http://aaa.com&apos;);</span><br></pre></td></tr></table></figure>
+<p>父窗口和子窗口都可以通过message事件，监听对方的消息。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">window.addEventListener(&apos;message&apos;, function(e) &#123;</span><br><span class="line"></span><br><span class="line">console.log(e.data);</span><br><span class="line"></span><br><span class="line">&#125;,false);</span><br></pre></td></tr></table></figure>
+<p>message事件的事件对象event，提供以下三个属性。</p>
+<ul>
+<li>event.source：发送消息的窗口</li>
+<li>event.origin: 消息发向的网址</li>
+<li>event.data: 消息内容</li>
+</ul>
+<p><strong>2.4 LocalStorage</strong></p>
+<p>主窗口写入iframe子窗口的localStorage：</p>
+<p>window.onmessage = function(e) {</p>
+<p>if (e.origin !== ‘<a href="http://bbb.com&#39;" target="_blank" rel="noopener">http://bbb.com&#39;</a>) {</p>
+<p>return;</p>
+<p>}</p>
+<p>var payload = JSON.parse(e.data);</p>
+<p>localStorage.setItem(payload.key, JSON.stringify(payload.data));</p>
+<p>};</p>
+<p>父窗口发送消息的代码如下：</p>
+<p>var win = document.getElementsByTagName(‘iframe’)[0].contentWindow;</p>
+<p>var obj = { name: ‘Jack’ };</p>
+<p>win.postMessage(JSON.stringify({key: ‘storage’, data: obj}), ‘<a href="http://bbb.com&#39;)" target="_blank" rel="noopener">http://bbb.com&#39;)</a>;</p>
+<p><strong>三、Ajax</strong></p>
+<p><strong>3.1 JSONP</strong></p>
+<p>网页通过添加一个\&lt;script>元素，向服务器请求JSON数据，在请求时指定一个回调函数，在拿到数据之后直接进行处理。</p>
+<p>function addScriptTag(src) {</p>
+<p>var script = document.createElement(‘script’);</p>
+<p>script.setAttribute(“type”,”text/javascript”);</p>
+<p>script.src = src;</p>
+<p>document.body.appendChild(script);</p>
+<p>}</p>
+<p>window.onload = function () {</p>
+<p>addScriptTag(‘<a href="http://example.com/ip?callback=foo&#39;)" target="_blank" rel="noopener">http://example.com/ip?callback=foo&#39;)</a>;</p>
+<p>}</p>
+<p>function foo(data) {</p>
+<p>console.log(‘Your public IP address is: ‘ + data.ip);</p>
+<p>};</p>
+<p><strong>3.2 WebSocket</strong></p>
+<p>WebSocket是一种通信协议，由<br>它发出请求，在请求头中有一项为origin，表示该请求的请求源。服务器根据这个域名判断是否允许该次通信，此域名是否在白名单内。</p>
 
       
     </div>
@@ -332,15 +389,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/03/12/H5本地储存机制/" rel="next" title="H5本地储存机制">
+                <i class="fa fa-chevron-left"></i> H5本地储存机制
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/12/H5本地储存机制/" rel="prev" title="H5本地储存机制">
-                H5本地储存机制 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -392,17 +449,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -444,22 +492,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
