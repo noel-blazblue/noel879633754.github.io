@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="传淘电商项目思路 一、首页轮播图： 区域滚动： 二、分类思路：  用模版引擎动态渲染一级分类，同时加载第一个一级分类的二级分类。 给每一个一级分类绑定一个tap事件 判断他有无被选中，如果有则不加载 移除所有li元素的now样式，然后给当前li添加now样式 获取当前li下面的a的id 然后ajax发送请求，传入id，拿到数据 渲染二级分类  一级分类渲染 获取数据： 1234567891011v">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2019/03/12/传淘电商项目思路/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="传淘电商项目思路 一、首页轮播图： 区域滚动： 二、分类思路：  用模版引擎动态渲染一级分类，同时加载第一个一级分类的二级分类。 给每一个一级分类绑定一个tap事件 判断他有无被选中，如果有则不加载 移除所有li元素的now样式，然后给当前li添加now样式 获取当前li下面的a的id 然后ajax发送请求，传入id，拿到数据 渲染二级分类  一级分类渲染 获取数据： 1234567891011v">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-12T11:55:25.972Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="传淘电商项目思路 一、首页轮播图： 区域滚动： 二、分类思路：  用模版引擎动态渲染一级分类，同时加载第一个一级分类的二级分类。 给每一个一级分类绑定一个tap事件 判断他有无被选中，如果有则不加载 移除所有li元素的now样式，然后给当前li添加now样式 获取当前li下面的a的id 然后ajax发送请求，传入id，拿到数据 渲染二级分类  一级分类渲染 获取数据： 1234567891011v">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/12/传淘电商项目思路/">
+
+
+
+
+
+  <title> | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/12/传淘电商项目思路/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-12T19:34:08+08:00">
+                2019-03-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>传淘电商项目思路</p>
+<h2 id="一、首页"><a href="#一、首页" class="headerlink" title="一、首页"></a>一、首页</h2><p>轮播图：</p>
+<p>区域滚动：</p>
+<h2 id="二、分类"><a href="#二、分类" class="headerlink" title="二、分类"></a>二、分类</h2><p>思路：</p>
+<ul>
+<li>用模版引擎动态渲染一级分类，同时加载第一个一级分类的二级分类。</li>
+<li>给每一个一级分类绑定一个tap事件</li>
+<li>判断他有无被选中，如果有则不加载</li>
+<li>移除所有li元素的now样式，然后给当前li添加now样式</li>
+<li>获取当前li下面的a的id</li>
+<li>然后ajax发送请求，传入id，拿到数据</li>
+<li>渲染二级分类</li>
+</ul>
+<h4 id="一级分类渲染"><a href="#一级分类渲染" class="headerlink" title="一级分类渲染"></a>一级分类渲染</h4><ol>
+<li><p>获取数据：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var getFirstCategoryData = function (callback) &#123;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        url:&apos;/category/queryTopCategory&apos;,</span><br><span class="line">        type:&apos;get&apos;,</span><br><span class="line">        data:&apos;&apos;,</span><br><span class="line">        dataType:&apos;json&apos;,</span><br><span class="line">        success:function (data) &#123;</span><br><span class="line">            callback &amp;&amp; callback(data);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>定义模版：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/template&quot; id=&quot;firstTemplate&quot;&gt;</span><br><span class="line">    &lt;% for(var i = 0 ; i &lt; rows.length ; i ++)&#123; %&gt;</span><br><span class="line">    &lt;li class=&quot;&lt;%=i==0?&apos;now&apos;:&apos;&apos;%&gt;&quot;&gt;&lt;a href=&quot;javascript:;&quot; data-id=&quot;&lt;%=rows[i].id%&gt;&quot;&gt;&lt;%=rows[i].categoryName%&gt;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;% &#125; %&gt;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>渲染成字符串并添加到页面：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;.cate_left ul&apos;).html(template(&apos;firstTemplate&apos;,data));</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>同时拿到id，渲染对应的二级分类：</p>
+<p>4.1 获取ID</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var categoryId = $(&apos;.cate_left ul li:first-child&apos;).find(&apos;a&apos;).attr(&apos;data-id&apos;);</span><br></pre></td></tr></table></figure>
+<p>4.2 渲染二级分类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var render = function (categoryId) &#123;</span><br><span class="line">    getSecondCategoryData(&#123;</span><br><span class="line">        id:categoryId</span><br><span class="line">    &#125;,function (data) &#123;</span><br><span class="line">        /*二级分类默认*/</span><br><span class="line">        $(&apos;.cate_right ul&apos;).html(template(&apos;secondTemplate&apos;,data));</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="二级分类渲染："><a href="#二级分类渲染：" class="headerlink" title="二级分类渲染："></a>二级分类渲染：</h4><ol>
+<li><p>给一级分类绑定on（’tap‘）事件</p>
+</li>
+<li><p>判断当前有没有被选中，有则不加载</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if($(this).parent().hasClass(&apos;now&apos;)) return false;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>移除所有li的now样式，给当前li添加now样式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;.cate_left li&apos;).removeClass(&apos;now&apos;);</span><br><span class="line">$(this).parent().addClass(&apos;now&apos;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取当前a链接的id，渲染对应的二级分类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">render( $(this).attr(&apos;data-id&apos;));</span><br><span class="line">var render = function (categoryId) &#123;</span><br><span class="line">    getSecondCategoryData(&#123;</span><br><span class="line">        id:categoryId</span><br><span class="line">    &#125;,function (data) &#123;</span><br><span class="line">        $(&apos;.cate_right ul&apos;).html(template(&apos;secondTemplate&apos;,data));</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="三、搜索"><a href="#三、搜索" class="headerlink" title="三、搜索"></a>三、搜索</h2><h4 id="1-搜索功能"><a href="#1-搜索功能" class="headerlink" title="1.搜索功能"></a>1.搜索功能</h4><p>1.获取搜索框数据，跳转到搜索页面并传入url参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var key = $.trim($(&apos;input&apos;).val());					//获取数据</span><br><span class="line">location.href = &apos;searchList.html?key=&apos;+key;			//跳转页面</span><br></pre></td></tr></table></figure>
+<p>2.把关键字输出到搜索框</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var urlParams = CT.getParamsByUrl();				//获取关键字为键值</span><br><span class="line">var $input = $(&apos;input&apos;).val(urlParams.key || &apos;&apos;);	//输出</span><br></pre></td></tr></table></figure>
+<p>3.根据关键字发送请求，渲染数据</p>
+<h4 id="2-排序功能"><a href="#2-排序功能" class="headerlink" title="2.排序功能"></a>2.排序功能</h4><p>1.用户点击排序的时候，修改箭头样式</p>
+<p>2.根据箭头样式，判断升序还是降序</p>
+<p>3.获取对应的参数，发送ajax请求，并渲染页面</p>
+<h4 id="3-上拉刷新功能"><a href="#3-上拉刷新功能" class="headerlink" title="3.上拉刷新功能"></a>3.上拉刷新功能</h4><p>1.设置mui的下拉/上拉初始化</p>
+<p>2.在下拉模块的回调函数中，重置排序，重新渲染页面</p>
+<h4 id="4-下拉加载功能"><a href="#4-下拉加载功能" class="headerlink" title="4.下拉加载功能"></a>4.下拉加载功能</h4><p>1.在mui的下拉模块回调函数中，发送ajax请求，传入页数，并渲染页面</p>
+<h2 id="四、购物车"><a href="#四、购物车" class="headerlink" title="四、购物车"></a>四、购物车</h2><h4 id="1-刷新功能"><a href="#1-刷新功能" class="headerlink" title="1.刷新功能"></a>1.刷新功能</h4><p>​    初始化下拉插件，在下拉的同时发送请求，渲染数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">mui.init(&#123;</span><br><span class="line">    pullRefresh: &#123;</span><br><span class="line">        container: &quot;#refreshContainer&quot;,</span><br><span class="line">        down: &#123;</span><br><span class="line">            auto:true,</span><br><span class="line">            callback:function () &#123;</span><br><span class="line">                /*1.初始化页面  自动下拉刷新*/</span><br><span class="line">                var that = this;</span><br><span class="line">                /*定义一个全局的 下拉组件对象  使用里面的方法*/</span><br><span class="line">                //window.down = this;</span><br><span class="line">                setTimeout(function () &#123;</span><br><span class="line">                    getCartData(function (data) &#123;</span><br><span class="line">                        /*渲染页面*/</span><br><span class="line">                        $(&apos;.mui-table-view&apos;).html(template(&apos;cart&apos;,data));</span><br><span class="line">                        /*加载状态隐藏*/</span><br><span class="line">                        that.endPulldownToRefresh();</span><br><span class="line">                        /*注册刷新事件 防止多次绑定  先解绑再次绑定*/</span><br><span class="line">                        $(&apos;.fa-refresh&apos;).off(&apos;click&apos;).on(&apos;tap&apos;,function () &#123;</span><br><span class="line">                            /*重新 加载*/</span><br><span class="line">                            /*4.点击刷新按钮  刷新*/</span><br><span class="line">                            that.pulldownLoading();</span><br><span class="line">                        &#125;);</span><br><span class="line">                    &#125;);</span><br><span class="line">                &#125;,1000);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="2-侧滑点击编辑"><a href="#2-侧滑点击编辑" class="headerlink" title="2.侧滑点击编辑"></a>2.侧滑点击编辑</h4><ol>
+<li>拿到尺码和数量等数据，并渲染到编辑页面中</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var id = $(this).parent().attr(&apos;data-id&apos;);</span><br><span class="line">var item = CT.getItemById(window.cartData.data,id);</span><br><span class="line">var html = template(&apos;edit&apos;,item);</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>用mui插件完成订单选择功能</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mui.confirm(html.replace(/\n/g,&apos;&apos;), &apos;商品编辑&apos;, [&apos;确认&apos;, &apos;取消&apos;], function(e) &#123;</span><br><span class="line">    if (e.index == 0) &#123;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>获取页面元素中尺寸和数量的值</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var size = $(&apos;.btn_size.now&apos;).html();</span><br><span class="line">var num = $(&apos;.p_number input&apos;).val();</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>输入对应参数，发送ajax请求</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CT.loginAjax(&#123;</span><br><span class="line">    type:&apos;post&apos;,</span><br><span class="line">    url:&apos;/cart/updateCart&apos;,</span><br><span class="line">    data:&#123;</span><br><span class="line">        id:id,</span><br><span class="line">        size:size,</span><br><span class="line">        num:num</span><br><span class="line">    &#125;,</span><br><span class="line">    dataType:&apos;json&apos;,</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>再次渲染页面</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">success:function (data) &#123;</span><br><span class="line">    if(data.success == true)&#123;</span><br><span class="line">        /*窗口关闭*/</span><br><span class="line">        /*列表更新*/</span><br><span class="line">        item.num = num;</span><br><span class="line">        item.size = size;</span><br><span class="line">        /*缓存的数据  window.cartData.data 已修改*/</span><br><span class="line">        /*渲染页面*/</span><br><span class="line">        $(&apos;.mui-table-view&apos;).html(template(&apos;cart&apos;,window.cartData));</span><br><span class="line">        /*整个列表重新渲染*/</span><br><span class="line">        //setAmount();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-侧滑点击删除"><a href="#3-侧滑点击删除" class="headerlink" title="3.侧滑点击删除"></a>3.侧滑点击删除</h4>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/13/webpack配置/" rel="next" title="webpack配置">
+                <i class="fa fa-chevron-left"></i> webpack配置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/12/传淘电商项目思路-1/" rel="prev" title="传淘电商项目思路">
+                传淘电商项目思路 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、首页"><span class="nav-number">1.</span> <span class="nav-text">一、首页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、分类"><span class="nav-number">2.</span> <span class="nav-text">二、分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一级分类渲染"><span class="nav-number">2.0.1.</span> <span class="nav-text">一级分类渲染</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二级分类渲染："><span class="nav-number">2.0.2.</span> <span class="nav-text">二级分类渲染：</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#三、搜索"><span class="nav-number">3.</span> <span class="nav-text">三、搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-搜索功能"><span class="nav-number">3.0.1.</span> <span class="nav-text">1.搜索功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-排序功能"><span class="nav-number">3.0.2.</span> <span class="nav-text">2.排序功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-上拉刷新功能"><span class="nav-number">3.0.3.</span> <span class="nav-text">3.上拉刷新功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-下拉加载功能"><span class="nav-number">3.0.4.</span> <span class="nav-text">4.下拉加载功能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、购物车"><span class="nav-number">4.</span> <span class="nav-text">四、购物车</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-刷新功能"><span class="nav-number">4.0.1.</span> <span class="nav-text">1.刷新功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-侧滑点击编辑"><span class="nav-number">4.0.2.</span> <span class="nav-text">2.侧滑点击编辑</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-侧滑点击删除"><span class="nav-number">4.0.3.</span> <span class="nav-text">3.侧滑点击删除</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
