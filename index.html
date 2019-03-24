@@ -1473,6 +1473,171 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/24/函数防抖与函数节流/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/24/函数防抖与函数节流/" itemprop="url">函数防抖与函数节流</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-24T15:54:29+08:00">
+                2018-06-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="一、意义："><a href="#一、意义：" class="headerlink" title="一、意义："></a>一、意义：</h2><p>在绑定 scroll 、resize 这类事件时，当它发生时，它被触发的频次非常高，间隔很近。如果事件中涉及到大量的位置计算、DOM 操作、元素重绘等工作且这些工作无法在下一个 scroll 事件触发前完成，就会造成浏览器掉帧。加之用户鼠标滚动往往是连续的，就会持续触发 scroll 事件导致掉帧扩大、浏览器 CPU 使用率增加、用户体验受到影响。</p>
+<p>简单的讲就是事件触发太频繁，浏览器来不及处理，导致页面出现卡顿。</p>
+<hr>
+<p>DOM操作比非DOM交互需要更多的内存和CPU时间，连续尝试进行过多的DOM相关操作可能会导致浏览器挂起，有时候甚至会崩溃。 </p>
+<h2 id="二、原理"><a href="#二、原理" class="headerlink" title="二、原理"></a>二、原理</h2><p>Debounce</p>
+<p>原理是通过重复调用函数，清空定时器，在函数不再被调用的时候触发一次。</p>
+<p>throttle</p>
+<p>原理是通过判断时间间隔、间隔一定的时间频率调用函数。</p>
+<p> throttle和debounce均是通过减少实际逻辑处理过程的执行来提高事件处理函数运行性能的手段，并没有实质上减少事件的触发次数。</p>
+<ul>
+<li>当我们只需要处理最后一次触发事件时，用函数防抖。如窗口大小值变化时并不需要计算中间变化的过程，只需要窗口大小改变完成后的值</li>
+<li>当事件触发过于频繁，我们需要限制事件处理程序的调用频率时，用函数节流。</li>
+</ul>
+<h2 id="函数防抖"><a href="#函数防抖" class="headerlink" title="函数防抖"></a>函数防抖</h2><p><code>debounce</code></p>
+<p>函数防抖是指<strong>对于在事件被触发n秒后再执行的回调，如果在这n秒内又重新被触发，则重新开始计时</strong>，是常见的优化，适用于</p>
+<ul>
+<li>表单组件输入内容验证</li>
+<li>防止多次点击导致表单多次提交</li>
+</ul>
+<p>等情况，防止函数过于频繁的不必要的调用。</p>
+<p>例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function debounce(func, wait) &#123;</span><br><span class="line">    let timeout</span><br><span class="line">    return function () &#123;</span><br><span class="line">        clearTimeout(timeout)</span><br><span class="line">        timeout = setTimeout(func, wait) //返回计时器 ID</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">container.onmousemove = debounce(doSomething, 1000);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在函数内定义一个timeout变量</li>
+<li>return一个函数</li>
+<li>清理timeout计时器</li>
+<li>定义timeout定时器</li>
+<li>传入执行函数和间隔毫秒</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function debounce(fn, wait, immediate) &#123;</span><br><span class="line">    let timer = null</span><br><span class="line"></span><br><span class="line">    return function() &#123;</span><br><span class="line">        let args = arguments</span><br><span class="line">        let context = this</span><br><span class="line"></span><br><span class="line">        if (immediate &amp;&amp; !timer) &#123;</span><br><span class="line">            fn.apply(context, args)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if (timer) clearTimeout(timer)</span><br><span class="line">        timer = setTimeout(() =&gt; &#123;</span><br><span class="line">            fn.apply(context, args)</span><br><span class="line">        &#125;, wait)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="函数节流"><a href="#函数节流" class="headerlink" title="函数节流"></a>函数节流</h2><p>函数在n秒内最多执行一次</p>
+<p>再次执行则会清空定时器</p>
+<p>若函数执行的时间间隔小于等于规定时间间隔则用setTimeout在规定时间后再执行</p>
+<p>若函数执行的时间间隔大于规定时间间隔则执行函数，并重新计时</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">function throttle(func,interval)&#123;</span><br><span class="line">    let timeout;</span><br><span class="line">    let startTime = new Date();</span><br><span class="line">    return function ()&#123;</span><br><span class="line">        clearTimeout(timeout);</span><br><span class="line">        let curTime = new Date();</span><br><span class="line">        if(curTime - startTime &lt;= interval)&#123;</span><br><span class="line">            //小于规定时间间隔时，用setTimeout在指定时间后再执行</span><br><span class="line">            timeout = setTimeout(func,interval)</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            //重新计时并执行函数</span><br><span class="line">            startTime = curTime;</span><br><span class="line">            func()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//事件处理程序</span><br><span class="line">function realFunc()&#123;</span><br><span class="line">    console.log(&apos;success&apos;)</span><br><span class="line">&#125;</span><br><span class="line">window.addEventListener(&apos;scroll&apos;,throttle(realFunc,100));</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在外部函数定义timeout和starttime</li>
+<li>return一个内部函数，形成闭包</li>
+<li>清除timeout定时器</li>
+<li>定义curtime</li>
+<li>如果curtime-startime小于interval，重新设置定时器</li>
+<li>else则把curtime赋值给starttime</li>
+<li>立即执行函数</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">function throttle(fn, wait, immediate) &#123;</span><br><span class="line">    let timer = null</span><br><span class="line">    let callNow = immediate</span><br><span class="line">    </span><br><span class="line">    return function() &#123;</span><br><span class="line">        let context = this,</span><br><span class="line">        let args = arguments</span><br><span class="line"></span><br><span class="line">        if (callNow) &#123;</span><br><span class="line">            fn.apply(context, args)</span><br><span class="line">            callNow = false</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if (!timer) &#123;</span><br><span class="line">            timer = setTimeout(() =&gt; &#123;</span><br><span class="line">                fn.apply(context, args)</span><br><span class="line">                timer = null</span><br><span class="line">            &#125;, wait)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/12/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1634,7 +1799,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
