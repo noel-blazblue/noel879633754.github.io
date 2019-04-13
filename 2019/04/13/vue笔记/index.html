@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Vue生命周期钩子 beforeCreate：此时获取不到prop和data中的数据； created：可以获取到prop和data中的数据；  beforeMount：获取到了VDOM;  mounted：VDOM解析成了真实DOM;  beforeUpdate：在更新之前调用；  updated：在更新之后调用； keep-alive：切换组件之后，组件放进activated，之前的组件放进d">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2019/04/13/vue笔记/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Vue生命周期钩子 beforeCreate：此时获取不到prop和data中的数据； created：可以获取到prop和data中的数据；  beforeMount：获取到了VDOM;  mounted：VDOM解析成了真实DOM;  beforeUpdate：在更新之前调用；  updated：在更新之后调用； keep-alive：切换组件之后，组件放进activated，之前的组件放进d">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/12/9/1603ae858f7da6cd?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:updated_time" content="2019-04-09T11:53:11.147Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="Vue生命周期钩子 beforeCreate：此时获取不到prop和data中的数据； created：可以获取到prop和data中的数据；  beforeMount：获取到了VDOM;  mounted：VDOM解析成了真实DOM;  beforeUpdate：在更新之前调用；  updated：在更新之后调用； keep-alive：切换组件之后，组件放进activated，之前的组件放进d">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2017/12/9/1603ae858f7da6cd?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/04/13/vue笔记/">
+
+
+
+
+
+  <title> | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/13/vue笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-13T23:19:03+08:00">
+                2019-04-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Vue生命周期钩子"><a href="#Vue生命周期钩子" class="headerlink" title="Vue生命周期钩子"></a>Vue生命周期钩子</h2><ul>
+<li>beforeCreate：此时获取不到prop和data中的数据；</li>
+<li>created：可以获取到prop和data中的数据； </li>
+<li>beforeMount：获取到了VDOM; </li>
+<li>mounted：VDOM解析成了真实DOM; </li>
+<li>beforeUpdate：在更新之前调用； </li>
+<li>updated：在更新之后调用；</li>
+<li>keep-alive：切换组件之后，组件放进activated，之前的组件放进deactivated；</li>
+<li>beforeDestory：在组件销毁之前调用，可以解决内存泄露的问题，如setTimeout和setInterval造成的问题。</li>
+<li>destory：组件销毁之后调用。</li>
+</ul>
+<h3 id="beforeCreate"><a href="#beforeCreate" class="headerlink" title="beforeCreate"></a>beforeCreate</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">callHook(vm, &apos;beforeCreate&apos;)</span><br><span class="line">// 初始化 inject</span><br><span class="line">// 初始化 props、methods、data、computed 和 watch</span><br><span class="line">// 初始化 provide</span><br><span class="line">callHook(vm, &apos;created&apos;)</span><br><span class="line">// 挂载实例 vm.$mount(vm.$options.el)</span><br></pre></td></tr></table></figure>
+<p>v-show和v-if指令的共同点和不同点？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1.v-if是删除/添加Dom标签，不占据文档位置,v-show切换css的display属性，控制显示隐藏，还会占据文档位置。</span><br><span class="line">2.v-if会删除dom标签所以v-if性能消耗会高一些，需要频繁切换的话，使用v-show会好一点。</span><br></pre></td></tr></table></figure>
+<p><code>&lt;keep-alive&gt;&lt;/keep-alice&gt;</code>的作用的是什么？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`&lt;keep-alive&gt;`是Vue的内置组件，能在组件切换过程中将状态保留在内存中，防止重复渲染DOM。</span><br></pre></td></tr></table></figure>
+<h2 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h2><p><img src="https://user-gold-cdn.xitu.io/2017/12/9/1603ae858f7da6cd?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="vuexçå·¥ä½æµç¨"> </p>
+<p>Vuex 是用于 Vue.js 应用的状态管理库，为应用中的所有组件提供集中式的状态存储与操作，保证了所有状态以可预测的方式进行修改。 </p>
+<ol>
+<li>在vue组件里面，通过dispatch来触发actions提交修改数据的操作。</li>
+<li>然后再通过actions的commit来触发mutations来修改数据。</li>
+<li>mutations接收到commit的请求，就会自动通过Mutate来修改state（数据中心里面的数据状态）里面的数据。</li>
+<li>最后由store触发每一个调用它的组件的更新</li>
+</ol>
+<p>Vuex的作用：项目数据状态的集中管理，复杂组件的数据通信问题。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">const store = new Vuex.Store(&#123;</span><br><span class="line">  state: &#123;</span><br><span class="line">  &#125;,</span><br><span class="line">  actions: &#123;</span><br><span class="line">  &#125;,</span><br><span class="line">  mutations: &#123;</span><br><span class="line">  &#125;,</span><br><span class="line">  getters: &#123;</span><br><span class="line">  &#125;,  </span><br><span class="line">  modules: &#123;</span><br><span class="line">    </span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>state<ul>
+<li>state 定义了应用状态的数据结构，同样可以在这里设置默认的初始状态。</li>
+</ul>
+</li>
+<li>actions<ul>
+<li>Actions 即是定义提交触发更改信息的描述 </li>
+</ul>
+</li>
+<li>mutations:<ul>
+<li>更新应用状态的地方。</li>
+</ul>
+</li>
+<li>getters<ul>
+<li>Getters 允许组件从 Store 中获取数据 </li>
+</ul>
+</li>
+<li>modules<ul>
+<li>modules 对象允许将单一的 Store 拆分为多个 Store 的同时保存在单一的状态树中。 </li>
+</ul>
+</li>
+</ul>
+<p>对于 <code>$</code> 前缀来说，其在 Vue 生态系统中的目的是暴露给用户的一个特殊的实例属性，所以把它用于<em>私有</em>属性并不合适。 </p>
+<h2 id="Vue路由"><a href="#Vue路由" class="headerlink" title="Vue路由"></a>Vue路由</h2><h3 id="路由模式"><a href="#路由模式" class="headerlink" title="路由模式"></a>路由模式</h3><p>“hash” | “history” | “abstract” </p>
+<ul>
+<li><code>hash</code>: 使用 URL hash 值来作路由。支持所有浏览器，包括不支持 HTML5 History Api 的浏览器。</li>
+<li><code>history</code>: 依赖 HTML5 History API 和服务器配置。查看 <a href="https://router.vuejs.org/zh/guide/essentials/history-mode.html" target="_blank" rel="noopener">HTML5 History 模式</a>。</li>
+<li><code>abstract</code>: 支持所有 JavaScript 运行环境，如 Node.js 服务器端。<strong>如果发现没有浏览器的 API，路由会自动强制进入这个模式。</strong></li>
+</ul>
+<h4 id="hash"><a href="#hash" class="headerlink" title="hash"></a>hash</h4><p>hash模式仅改变hash部分的内容，而hash部分是不会包含在http请求中的。所以hash模式下遇到根据url请求页面不会有问题</p>
+<h4 id="history"><a href="#history" class="headerlink" title="history"></a>history</h4><p>而history模式则将url修改的就和正常请求后端的url一样(history不带#)</p>
+<p><a href="https://link.juejin.im/?target=http%3A%2F%2Foursite.com%2Fuser%2Fid" target="_blank" rel="noopener">oursite.com/user/id</a></p>
+<p>如果这种向后端发送请求的话，后端没有配置对应/user/id的get路由处理,会返回404错误。</p>
+<p>优势：</p>
+<ul>
+<li>pushState设置的新url可以是与当前url同源的任意url,而hash只可修改#后面的部分，故只可设置与当前同文档的url</li>
+<li>pushState设置的新url可以与当前url一模一样，这样也会把记录添加到栈中，而hash设置的新值必须与原来不一样才会触发记录添加到栈中</li>
+<li>pushState通过stateObject可以添加任意类型的数据记录中，而hash只可添加短字符串 pushState可额外设置title属性供后续使用</li>
+</ul>
+<h4 id="abstract"><a href="#abstract" class="headerlink" title="abstract"></a>abstract</h4><p>不涉及和浏览器地址的相关记录 </p>
+<p>abstract模式是使用一个不依赖于浏览器的浏览历史虚拟管理后端，其原理是通过数组模拟浏览器历史记录栈的功能 </p>
+<h3 id="路由导航守卫"><a href="#路由导航守卫" class="headerlink" title="路由导航守卫"></a>路由导航守卫</h3><p>导航守卫主要用来通过跳转或取消的方式守卫导航。</p>
+<p><strong>当点击切换路由时：beforeRouterLeave–&gt;beforeEach–&gt;beforeEnter–&gt;beforeRouteEnter–&gt;beforeResolve–&gt;afterEach–&gt;beforeCreate–&gt;created–&gt;beforeMount–&gt;mounted–&gt;beforeRouteEnter的next的回调</strong> </p>
+<h4 id="钩子"><a href="#钩子" class="headerlink" title="钩子"></a>钩子</h4><p>每个守卫方法接收三个参数：</p>
+<ul>
+<li><strong>to: Route</strong>: 即将要进入的目标 <a href="https://router.vuejs.org/zh/api/#%E8%B7%AF%E7%94%B1%E5%AF%B9%E8%B1%A1" target="_blank" rel="noopener">路由对象</a></li>
+<li><strong>from: Route</strong>: 当前导航正要离开的路由</li>
+<li><strong>next: Function</strong>: 一定要调用该方法来 <strong>resolve</strong> 这个钩子。执行效果依赖 <code>next</code> 方法的调用参数。<ul>
+<li><strong>next()</strong>: 进行管道中的下一个钩子。如果全部钩子执行完了，则导航的状态就是 <strong>confirmed</strong> (确认的)。</li>
+<li><strong>next(false)</strong>: 中断当前的导航。如果浏览器的 URL 改变了 (可能是用户手动或者浏览器后退按钮)，那么 URL 地址会重置到 <code>from</code> 路由对应的地址。</li>
+<li><strong>next(‘/‘) 或者 next({ path: ‘/‘ })</strong>: 跳转到一个不同的地址。当前的导航被中断，然后进行一个新的导航。你可以向 <code>next</code> 传递任意位置对象，且允许设置诸如 <code>replace: true</code>、<code>name: &#39;home&#39;</code> 之类的选项以及任何用在 <a href="https://router.vuejs.org/zh/api/#to" target="_blank" rel="noopener"><code>router-link</code> 的 <code>to</code> prop</a> 或 <a href="https://router.vuejs.org/zh/api/#router-push" target="_blank" rel="noopener"><code>router.push</code></a> 中的选项。</li>
+<li><strong>next(error)</strong>: (2.4.0+) 如果传入 <code>next</code> 的参数是一个 <code>Error</code> 实例，则导航会被终止且该错误会被传递给 <a href="https://router.vuejs.org/zh/api/#router-onerror" target="_blank" rel="noopener"><code>router.onError()</code></a> 注册过的回调。</li>
+</ul>
+</li>
+</ul>
+<p><strong>确保要调用 next 方法，否则钩子就不会被 resolved。</strong></p>
+<h4 id="全局守卫"><a href="#全局守卫" class="headerlink" title="全局守卫"></a>全局守卫</h4><h5 id="router-beforeEach-全局前置守卫"><a href="#router-beforeEach-全局前置守卫" class="headerlink" title="router.beforeEach 全局前置守卫"></a>router.beforeEach 全局前置守卫</h5><p>​    当一个导航触发时，全局前置守卫按照创建顺序调用。守卫是异步解析执行，此时导航在所有守卫 resolve 完之前一直处于 <strong>等待中</strong>。 </p>
+<h5 id="router-beforeResolve-全局解析守卫"><a href="#router-beforeResolve-全局解析守卫" class="headerlink" title="router.beforeResolve 全局解析守卫"></a>router.beforeResolve 全局解析守卫</h5><p>​    这和 <code>router.beforeEach</code> 类似，区别是在导航被确认之前，<strong>同时在所有组件内守卫和异步路由组件被解析之后</strong>，解析守卫就被调用。 </p>
+<h5 id="router-afterEach-全局后置钩子"><a href="#router-afterEach-全局后置钩子" class="headerlink" title="router.afterEach  全局后置钩子"></a>router.afterEach  全局后置钩子</h5><p>这些钩子不会接受 <code>next</code> 函数也不会改变导航本身： </p>
+<h4 id="组件内守卫"><a href="#组件内守卫" class="headerlink" title="组件内守卫"></a>组件内守卫</h4><h5 id="beforeRouteEnter-进入组件之前"><a href="#beforeRouteEnter-进入组件之前" class="headerlink" title="beforeRouteEnter  进入组件之前"></a>beforeRouteEnter  进入组件之前</h5><p>进入该组件之前被调用，组件实例还没有被创建，不能使用 this关键字</p>
+<p>通过传一个回调给 next来访问组件实例，在导航被确认的时候执行回调 ，用next函数的 vm 参数充当 this</p>
+<pre><code>export default {
+    name: &quot;Admin&quot;,
+    data(){
+      return{
+        infor:&apos;hw&apos;
+      }
+    },
+  beforeRouteEnter:(to,from,next)=&gt;{
+      //此时该组件还没被实例化
+      alert(this.infor);       //弹出消息框信息为 undefined
+    next(vm =&gt;{
+      //此时该组件被实例化了
+      alert(vm.infor);         //弹出消息框信息为 hw
+    })
+  }
+</code></pre><p>注意 <code>beforeRouteEnter</code> 是支持给 <code>next</code> 传递回调的唯一守卫。对于 <code>beforeRouteUpdate</code> 和 <code>beforeRouteLeave</code> 来说，<code>this</code> 已经可用了，所以<strong>不支持</strong>传递回调，因为没有必要了。 </p>
+<h5 id="beforeRouteLeave-离开组件之后"><a href="#beforeRouteLeave-离开组件之后" class="headerlink" title="beforeRouteLeave  离开组件之后"></a>beforeRouteLeave  离开组件之后</h5><p> <strong>离开组件之后调用，可以调用 this 关键字</strong> </p>
+<p>这个离开守卫通常用来禁止用户在还未保存修改前突然离开。该导航可以通过 <code>next(false)</code> 来取消。 </p>
+<h5 id="beforeRouteUpdate-组件被复用的时候被调用"><a href="#beforeRouteUpdate-组件被复用的时候被调用" class="headerlink" title="beforeRouteUpdate     组件被复用的时候被调用"></a><strong>beforeRouteUpdate</strong>     组件被复用的时候被调用</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">beforeRouteUpdate (to, from, next) &#123;</span><br><span class="line">   // 在当前路由改变，但是该组件被复用时调用</span><br><span class="line">   // 举例来说，对于一个带有动态参数的路径 /foo/:id，在 /foo/1 和 /foo/2 之间跳转的时候，</span><br><span class="line">   // 由于会渲染同样的 Foo 组件，因此组件实例会被复用。而这个钩子就会在这个情况下被调用。</span><br><span class="line">   // 可以访问组件实例 this</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>router.match 可以根据请求的 path 和 method 筛选出匹配的 route</li>
+</ol>
+<h3 id="route"><a href="#route" class="headerlink" title="$route"></a>$route</h3><p><strong>$route 是“路由信息对象”，包括 path，params，hash，query，fullPath，matched，name 等路由信息参数。</strong></p>
+<p><strong>① $route.path</strong> 字符串，对应当前路由的路径，总是解析为绝对路径，如 “/order”。</p>
+<p><strong>② $route.params</strong> 一个 key/value 对象，包含了 动态片段 和 全匹配片段， 如果没有路由参数，就是一个空对象。</p>
+<p><strong>③ $route.query</strong> 一个 key/value 对象，表示 URL 查询参数。 例如，对于路径 /foo?user=1，则有 $route.query.user为1， 如果没有查询参数，则是个空对象。</p>
+<p><strong>④ $route.hash</strong> 当前路由的 hash 值 (不带 #) ，如果没有 hash 值，则为空字符串。</p>
+<p><strong>⑤ $route.fullPath</strong> 完成解析后的 URL，包含查询参数和 hash 的完整路径。</p>
+<p><strong>⑥ $route.matched</strong> 数组，包含当前匹配的路径中所包含的所有片段所对应的配置参数对象。</p>
+<p><strong>⑦ $route.name   当前路径名字</strong></p>
+<h2 id="Vue组件"><a href="#Vue组件" class="headerlink" title="Vue组件"></a>Vue组件</h2><h3 id="keep-alive"><a href="#keep-alive" class="headerlink" title="keep-alive"></a>keep-alive</h3><p>keep-alive是 Vue 内置的一个组件，可以使被包含的组件保留状态，或避免重新渲染。</p>
+<p> 在vue 2.1.0 版本之后，keep-alive新加入了两个属性: include(包含的组件缓存) 与 exclude(排除的组件不缓存，优先级大于include) 。</p>
+<h2 id="Vue数据"><a href="#Vue数据" class="headerlink" title="Vue数据"></a>Vue数据</h2><p>vue2.0用的是object.defineProperty</p>
+<p>vue3.0用的是Proxy</p>
+<h3 id="Object-defineProperty"><a href="#Object-defineProperty" class="headerlink" title="Object.defineProperty"></a>Object.defineProperty</h3><p> getter和setter,劫持用户对对象属性的取值和赋值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Object.defineProperty(obj, &apos;name&apos;, &#123;</span><br><span class="line">  get() &#123;</span><br><span class="line">    console.log(&apos;劫持了你的取值操作啦&apos;);</span><br><span class="line">    return val;</span><br><span class="line">  &#125;,</span><br><span class="line">  set(newVal) &#123;</span><br><span class="line">    console.log(&apos;劫持了你的赋值操作啦&apos;);</span><br><span class="line">    val = newVal;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>vue.js首先通过Object.defineProperty来对要监听的数据进行getter和setter劫持，当数据的属性被赋值/取值的时候，vue.js就可以察觉到并做相应的处理。</p>
+</li>
+<li><p>通过订阅发布模式，我们可以为data对象的每个属性都创建一个发布者，</p>
+<p>当有其他订阅者依赖于这个属性的时候，则将订阅者加入到发布者的队列中。</p>
+<p>利用Object.defineProperty的数据劫持，在属性的setter调用的时候，该属性的发布者通知所有订阅者更新内容。</p>
+</li>
+</ol>
+<h3 id="vue-set"><a href="#vue-set" class="headerlink" title="vue.set"></a>vue.set</h3><p><strong>如果在实例创建之后添加新的属性到实例上，它不会触发视图更新</strong>。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.set(data,&apos;sex&apos;, &apos;男&apos;)</span><br></pre></td></tr></table></figure>
+<h3 id="methods"><a href="#methods" class="headerlink" title="methods"></a>methods</h3><p>methods是方法，要有一定的触发条件才能执行 </p>
+<p>而对于method ，只要发生重新渲染，method 调用总会执行该函数。 </p>
+<h3 id="computed"><a href="#computed" class="headerlink" title="computed"></a>computed</h3><p>computed是计算属性， 在DOM加载后和依赖变化后马上执行</p>
+<p><strong>computed</strong>计算属性是基于它们的依赖进行缓存的,只有在它的相关依赖发生改变时才会重新求值。 </p>
+<h3 id="watch"><a href="#watch" class="headerlink" title="watch"></a>watch</h3><p>侦听器watch是侦听一个特定的值，当该值变化时执行特定的函数。 </p>
+<p>watch是命令式和重复式的，假如监听涉及到多个属性，代码就会变得繁杂，不如computed直接</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/13/JS笔记/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/13/编程题/" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue生命周期钩子"><span class="nav-number">1.</span> <span class="nav-text">Vue生命周期钩子</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#beforeCreate"><span class="nav-number">1.1.</span> <span class="nav-text">beforeCreate</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vuex"><span class="nav-number">2.</span> <span class="nav-text">Vuex</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue路由"><span class="nav-number">3.</span> <span class="nav-text">Vue路由</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#路由模式"><span class="nav-number">3.1.</span> <span class="nav-text">路由模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#hash"><span class="nav-number">3.1.1.</span> <span class="nav-text">hash</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#history"><span class="nav-number">3.1.2.</span> <span class="nav-text">history</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#abstract"><span class="nav-number">3.1.3.</span> <span class="nav-text">abstract</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由导航守卫"><span class="nav-number">3.2.</span> <span class="nav-text">路由导航守卫</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#钩子"><span class="nav-number">3.2.1.</span> <span class="nav-text">钩子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#全局守卫"><span class="nav-number">3.2.2.</span> <span class="nav-text">全局守卫</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#router-beforeEach-全局前置守卫"><span class="nav-number">3.2.2.1.</span> <span class="nav-text">router.beforeEach 全局前置守卫</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#router-beforeResolve-全局解析守卫"><span class="nav-number">3.2.2.2.</span> <span class="nav-text">router.beforeResolve 全局解析守卫</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#router-afterEach-全局后置钩子"><span class="nav-number">3.2.2.3.</span> <span class="nav-text">router.afterEach  全局后置钩子</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组件内守卫"><span class="nav-number">3.2.3.</span> <span class="nav-text">组件内守卫</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#beforeRouteEnter-进入组件之前"><span class="nav-number">3.2.3.1.</span> <span class="nav-text">beforeRouteEnter  进入组件之前</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#beforeRouteLeave-离开组件之后"><span class="nav-number">3.2.3.2.</span> <span class="nav-text">beforeRouteLeave  离开组件之后</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#beforeRouteUpdate-组件被复用的时候被调用"><span class="nav-number">3.2.3.3.</span> <span class="nav-text">beforeRouteUpdate     组件被复用的时候被调用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#route"><span class="nav-number">3.3.</span> <span class="nav-text">$route</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue组件"><span class="nav-number">4.</span> <span class="nav-text">Vue组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#keep-alive"><span class="nav-number">4.1.</span> <span class="nav-text">keep-alive</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue数据"><span class="nav-number">5.</span> <span class="nav-text">Vue数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-defineProperty"><span class="nav-number">5.1.</span> <span class="nav-text">Object.defineProperty</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-set"><span class="nav-number">5.2.</span> <span class="nav-text">vue.set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#methods"><span class="nav-number">5.3.</span> <span class="nav-text">methods</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#computed"><span class="nav-number">5.4.</span> <span class="nav-text">computed</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#watch"><span class="nav-number">5.5.</span> <span class="nav-text">watch</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

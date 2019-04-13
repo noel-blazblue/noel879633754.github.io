@@ -180,17 +180,27 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
             
             Home
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
             
             Archives
           </a>
@@ -215,6 +225,1216 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/13/CSS笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/13/CSS笔记/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-13T23:19:03+08:00">
+                2019-04-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="c3新增样式"><a href="#c3新增样式" class="headerlink" title="c3新增样式"></a>c3新增样式</h2><p>1、box-shadow（阴影效果）</p>
+<p>2、border-color（为边框设置多种颜色）</p>
+<p>3、border-image（图片边框）</p>
+<p>4、text-shadow（文本阴影）</p>
+<p>5、text-overflow（文本截断）</p>
+<p>6、word-wrap（自动换行）</p>
+<p>7、border-radius（圆角边框）</p>
+<p>8、opacity（透明度）</p>
+<p>9、box-sizing（控制盒模型的组成模式）</p>
+<p>10、resize（元素缩放）</p>
+<p>11、outline（外边框）</p>
+<p>12、background-size（指定背景图片尺寸）</p>
+<p>13、background-origin（指定背景图片从哪里开始显示）</p>
+<p>14、background-clip（指定背景图片从什么位置开始裁剪）</p>
+<p>15、background（为一个元素指定多个背景）</p>
+<p>16、hsl（通过色调、饱和度、亮度来指定颜色颜色值）</p>
+<p>17、hsla（在hsl的基础上增加透明度设置）</p>
+<p>18、rgba（基于rgb设置颜色，a设置透明度）</p>
+<ul>
+<li><p>transition：过渡</p>
+</li>
+<li><p>transform：旋转、缩放、移动或者倾斜</p>
+</li>
+<li><p>animation：动画</p>
+</li>
+<li><p>gradient：渐变</p>
+</li>
+<li><p>shadow：阴影</p>
+</li>
+<li><p>border-radius：圆角</p>
+</li>
+</ul>
+<p>body,form,img 有默认的padding值</p>
+<p>清除浮动的方式：</p>
+<ul>
+<li><p>在浮动元素末尾加一个空的标签如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=&quot;clear:both&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置父元素为<code>overflow:hidden</code></p>
+</li>
+<li><p>给父元素添加<code>clearfix</code>类</p>
+</li>
+</ul>
+<h2 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h2><p>!important -&gt; 行内样式 -&gt; #id -&gt; .class -&gt; 元素和伪元素 -&gt; * -&gt; 继承 -&gt; 默认 </p>
+<h2 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h2><p>BFC 就是 块级格式上下文，它是一个独立的渲染区域，让处于 BFC 内部的元素和外部的元素相互隔离，使内外元素的定位不会相互影响。</p>
+<p>一定的 CSS 声明可以生成 BFC，浏览器对生成的 BFC 有一系列的渲染规则，利用这些渲染规则可以达到一定的布局效果。</p>
+<ul>
+<li>为什么需要 BFC 呢？</li>
+</ul>
+<ol>
+<li>它可以防止 margin 元素重叠（div 中包含 ul，而 div 与 ul 之间的垂直距离，取决于 div、ul、li 三者之间的最大外边距，这时候给 ul 一个 display:inline-block 即可解决这个问题）</li>
+<li>清除内部浮动（div 中包含 ul，而 ul 采用 float:left，那么 div 将变成一长条，这时候给 div 加上规则使其变成 BFC 即可）</li>
+</ol>
+<ul>
+<li>如何产生 BFC？</li>
+</ul>
+<ol>
+<li>display: inline-block</li>
+<li>position: absolute/fixed</li>
+</ol>
+<ul>
+<li>工作中一般可能不会顾及这个：</li>
+</ul>
+<ol>
+<li>float 很少使用了，尽可能使用 flex</li>
+<li>css reset 一般会清除掉一些问题，减少 BFC 的使用。</li>
+</ol>
+<h2 id="什么是外边距合并？"><a href="#什么是外边距合并？" class="headerlink" title="什么是外边距合并？"></a>什么是外边距合并？</h2><p>当两个垂直外边距相遇时，它们将形成一个外边距，合并后的外边距的高度等于两个发生合并的外边距的高度中的较大者。</p>
+<h2 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h2><h4 id="after-clear-both"><a href="#after-clear-both" class="headerlink" title=":after+clear:both"></a>:after+clear:both</h4><h4 id="父元素设置over-flow-hidden"><a href="#父元素设置over-flow-hidden" class="headerlink" title="父元素设置over-flow: hidden"></a>父元素设置over-flow: hidden</h4><h2 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h2><h3 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h3><h4 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h4><p>margin： -</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#child &#123;</span><br><span class="line">    width: 150px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    background: orange;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 50%;</span><br><span class="line">    margin: -50px 0 0 0; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>transform</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#box &#123;</span><br><span class="line">    width: 300px;</span><br><span class="line">    height: 300px;</span><br><span class="line">    background: #ddd;</span><br><span class="line">    position: relative;</span><br><span class="line">&#125;</span><br><span class="line">#child &#123;</span><br><span class="line">    background: orange;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 50%;</span><br><span class="line">    transform: translate(0, -50%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>margin： %</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#box &#123;</span><br><span class="line">    width: 300px;</span><br><span class="line">    height: 300px;</span><br><span class="line">    background: #ddd;</span><br><span class="line">    position: relative;</span><br><span class="line">&#125;</span><br><span class="line">#child &#123;</span><br><span class="line">    width: 50%;</span><br><span class="line">    height: 30%;</span><br><span class="line">    background: orange;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 50%;</span><br><span class="line">    margin: -15% 0 0 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>margin：auto</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#child &#123;</span><br><span class="line">    width: 200px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    background: orange;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 0;</span><br><span class="line">    bottom: 0;</span><br><span class="line">    margin: auto;</span><br><span class="line">    line-height: 100px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/14/git常用命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/14/git常用命令/" itemprop="url">git常用命令</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-14T16:26:18+08:00">
+                2019-03-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1、查看用户名和地址<br>git config user.name<br>git config user.email</p>
+<p>2、修改用户名和地址<br>git config –global user.name “your name”<br>git config –global user.email “your email”</p>
+<p>创建一个本地仓库<br>git init</p>
+<p>添加文件到缓存区<br>git add <filename></filename></p>
+<p>把缓存区文件添加到仓库<br>git commit -m “message”</p>
+<p>查看当前修改状态<br>git status</p>
+<p>查看修改后的不同点<br>git diff</p>
+<p>查看版本提交日志<br>git log<br>git log –pretty=oneline</p>
+<p>回退到某个版本<br>git reset –hard HEAD^        //上个版本 ^^为上上个版本<br>git reset <id></id></p>
+<p>丢弃暂存区的修改<br>git reset HEAD <filename></filename></p>
+<p>撤销修改<br>git checkout – <filename></filename></p>
+<p>记录每一次命令<br>git reflog</p>
+<p>删除文件<br>git rm <filename></filename></p>
+<p>关联远程github仓库<br>git remote add origin <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:<username>/<repository>.git</repository></username></p>
+<p>查看远程仓库<br>git remote -v</p>
+<p>推代码到远程仓库并关联分支<br>git push -u origin master</p>
+<p>推代码到远程仓库，无需关联<br>git push origin master</p>
+<p>克隆一个远程仓库到本地<br>git clone <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:<username>/<repository>.git</repository></username></p>
+<p>创建并切换到一个分支<br>git checkout -b <name><br>||<br>git branch <name>            创建分支<br>git checkout <name>            切换分支</name></name></name></p>
+<p>合并分支<br>git merge <branch></branch></p>
+<p>删除分支<br>git branch -d <branch></branch></p>
+<p>查看分支合并图<br>git log –graph</p>
+<p>合并分支并提交一个新的commit<br>git merge –no-ff -m “merge with no-ff” dev</p>
+<p>保存现有工作区<br>git stash </p>
+<p>查看保存的工作区<br>git stash list</p>
+<p>恢复工作区<br>git stash pop</p>
+<p>恢复指定工作区<br>git stash apply stash@{0}</p>
+<p>查看远程仓库<br>git remote -v</p>
+<p>推送分支到远程仓库<br>git push origin <branch></branch></p>
+<p>指定本地与远程分支的链接<br>git branch –set-upstream-to=origin/dev dev</p>
+<p>建立本地和远程分支的关联<br>git branch –set-upstream branch-name origin/branch-name</p>
+<p>查看标签<br>git tag<br>添加标签<br>git tag <name><br>添加指定标签<br>git tag <name> <id><br>删除标签<br>git tag -d <name></name></id></name></name></p>
+<p>推送某个标签到远程<br>git push origin <tagname></tagname></p>
+<p>删除已有远程库<br>git remote rm origin</p>
+<p>推送到指定远程库<br>git push github master</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/12/sfddssd/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/12/sfddssd/" itemprop="url">suo</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-12T19:56:50+08:00">
+                2019-03-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>同源限制：</strong></p>
+<p>（1） Cookie、LocalStorage 和 IndexDB 无法读取。</p>
+<p>（2） DOM 无法获得。</p>
+<p>（3） Ajax 请求不能发送。</p>
+<p><strong>规避方法：</strong></p>
+<p><strong>一. Cookie</strong></p>
+<p>A网页是<a href="http://w1.example.com/a.html，B网页是http://w2.example.com/b.html" target="_blank" rel="noopener">http://w1.example.com/a.html，B网页是http://w2.example.com/b.html</a></p>
+<p>设置相同的document.domain = ‘example.com’;</p>
+<p>就可以共享Cookie</p>
+<p>服务器也可以在设置Cookie的时候，指定Cookie的所属域名为一级域名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-Cookie: key=value; domain=.example.com; path=/</span><br></pre></td></tr></table></figure>
+<p><strong>二.iframe</strong></p>
+<p>如果两个窗口一级域名相同，只是二级域名不同，那么设置上一节介绍的document.domain属性，就可以规避同源政策，拿到DOM。</p>
+<p><strong>2.1 片段识别符</strong></p>
+<p><strong>｛方法：父窗口改变#后面的片段识别符，放上data。然后子窗口监听window.onhashchange事件，再通过document.location.hash接收#后面的data。｝</strong></p>
+<p>片段标识符（fragment<br>identifier）指的是，URL的#号后面的部分，比如<a href="http://example.com/x.html\#fragment的\#fragment。" target="_blank" rel="noopener">http://example.com/x.html\#fragment的\#fragment。</a></p>
+<p>父窗口可以把信息写入子窗口的片段标识符。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var src = originURL + &apos;\#&apos; + data;</span><br><span class="line"></span><br><span class="line">document.getElementById(&apos;myIFrame&apos;).src = src;</span><br></pre></td></tr></table></figure>
+<p>子窗口通过监听hashchange事件得到通知。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">window.onhashchange = checkMessage;</span><br><span class="line"></span><br><span class="line">function checkMessage() &#123;</span><br><span class="line"></span><br><span class="line">var message = window.location.hash;</span><br><span class="line"></span><br><span class="line">// ...</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>同样的，子窗口也可以改变父窗口的片段标识符。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">parent.location.href= target + &quot;\#&quot; + hash;</span><br></pre></td></tr></table></figure>
+<p><strong>2.3 window.postMessage</strong></p>
+<p>{H5方法：postMessage}</p>
+<p>父窗口<a href="http://aaa.com/" target="_blank" rel="noopener">http://aaa.com</a>向子窗口<a href="http://bbb.com/" target="_blank" rel="noopener">http://bbb.com</a>发消息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var popup = window.open(&apos;http://bbb.com&apos;, &apos;title&apos;);</span><br><span class="line"></span><br><span class="line">popup.postMessage(&apos;Hello World!&apos;, &apos;http://bbb.com&apos;);</span><br></pre></td></tr></table></figure>
+<p>子窗口向父窗口发送消息的写法类似。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.opener.postMessage(&apos;Nice to see you&apos;, &apos;http://aaa.com&apos;);</span><br></pre></td></tr></table></figure>
+<p>父窗口和子窗口都可以通过message事件，监听对方的消息。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">window.addEventListener(&apos;message&apos;, function(e) &#123;</span><br><span class="line"></span><br><span class="line">console.log(e.data);</span><br><span class="line"></span><br><span class="line">&#125;,false);</span><br></pre></td></tr></table></figure>
+<p>message事件的事件对象event，提供以下三个属性。</p>
+<ul>
+<li>event.source：发送消息的窗口</li>
+<li>event.origin: 消息发向的网址</li>
+<li>event.data: 消息内容</li>
+</ul>
+<p><strong>2.4 LocalStorage</strong></p>
+<p>主窗口写入iframe子窗口的localStorage：</p>
+<p>window.onmessage = function(e) {</p>
+<p>if (e.origin !== ‘<a href="http://bbb.com&#39;" target="_blank" rel="noopener">http://bbb.com&#39;</a>) {</p>
+<p>return;</p>
+<p>}</p>
+<p>var payload = JSON.parse(e.data);</p>
+<p>localStorage.setItem(payload.key, JSON.stringify(payload.data));</p>
+<p>};</p>
+<p>父窗口发送消息的代码如下：</p>
+<p>var win = document.getElementsByTagName(‘iframe’)[0].contentWindow;</p>
+<p>var obj = { name: ‘Jack’ };</p>
+<p>win.postMessage(JSON.stringify({key: ‘storage’, data: obj}), ‘<a href="http://bbb.com&#39;)" target="_blank" rel="noopener">http://bbb.com&#39;)</a>;</p>
+<p><strong>三、Ajax</strong></p>
+<p><strong>3.1 JSONP</strong></p>
+<p>网页通过添加一个\&lt;script>元素，向服务器请求JSON数据，在请求时指定一个回调函数，在拿到数据之后直接进行处理。</p>
+<p>function addScriptTag(src) {</p>
+<p>var script = document.createElement(‘script’);</p>
+<p>script.setAttribute(“type”,”text/javascript”);</p>
+<p>script.src = src;</p>
+<p>document.body.appendChild(script);</p>
+<p>}</p>
+<p>window.onload = function () {</p>
+<p>addScriptTag(‘<a href="http://example.com/ip?callback=foo&#39;)" target="_blank" rel="noopener">http://example.com/ip?callback=foo&#39;)</a>;</p>
+<p>}</p>
+<p>function foo(data) {</p>
+<p>console.log(‘Your public IP address is: ‘ + data.ip);</p>
+<p>};</p>
+<p><strong>3.2 WebSocket</strong></p>
+<p>WebSocket是一种通信协议，由<br>它发出请求，在请求头中有一项为origin，表示该请求的请求源。服务器根据这个域名判断是否允许该次通信，此域名是否在白名单内。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/12/传淘电商项目思路-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/12/传淘电商项目思路-1/" itemprop="url">传淘电商项目思路</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-12T19:47:56+08:00">
+                2019-03-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/12/传淘电商项目思路/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/12/传淘电商项目思路/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-12T19:34:08+08:00">
+                2019-03-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>传淘电商项目思路</p>
+<h2 id="一、首页"><a href="#一、首页" class="headerlink" title="一、首页"></a>一、首页</h2><p>轮播图：</p>
+<p>区域滚动：</p>
+<h2 id="二、分类"><a href="#二、分类" class="headerlink" title="二、分类"></a>二、分类</h2><p>思路：</p>
+<ul>
+<li>用模版引擎动态渲染一级分类，同时加载第一个一级分类的二级分类。</li>
+<li>给每一个一级分类绑定一个tap事件</li>
+<li>判断他有无被选中，如果有则不加载</li>
+<li>移除所有li元素的now样式，然后给当前li添加now样式</li>
+<li>获取当前li下面的a的id</li>
+<li>然后ajax发送请求，传入id，拿到数据</li>
+<li>渲染二级分类</li>
+</ul>
+<h4 id="一级分类渲染"><a href="#一级分类渲染" class="headerlink" title="一级分类渲染"></a>一级分类渲染</h4><ol>
+<li><p>获取数据：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var getFirstCategoryData = function (callback) &#123;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        url:&apos;/category/queryTopCategory&apos;,</span><br><span class="line">        type:&apos;get&apos;,</span><br><span class="line">        data:&apos;&apos;,</span><br><span class="line">        dataType:&apos;json&apos;,</span><br><span class="line">        success:function (data) &#123;</span><br><span class="line">            callback &amp;&amp; callback(data);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>定义模版：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/template&quot; id=&quot;firstTemplate&quot;&gt;</span><br><span class="line">    &lt;% for(var i = 0 ; i &lt; rows.length ; i ++)&#123; %&gt;</span><br><span class="line">    &lt;li class=&quot;&lt;%=i==0?&apos;now&apos;:&apos;&apos;%&gt;&quot;&gt;&lt;a href=&quot;javascript:;&quot; data-id=&quot;&lt;%=rows[i].id%&gt;&quot;&gt;&lt;%=rows[i].categoryName%&gt;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;% &#125; %&gt;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>渲染成字符串并添加到页面：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;.cate_left ul&apos;).html(template(&apos;firstTemplate&apos;,data));</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>同时拿到id，渲染对应的二级分类：</p>
+<p>4.1 获取ID</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var categoryId = $(&apos;.cate_left ul li:first-child&apos;).find(&apos;a&apos;).attr(&apos;data-id&apos;);</span><br></pre></td></tr></table></figure>
+<p>4.2 渲染二级分类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var render = function (categoryId) &#123;</span><br><span class="line">    getSecondCategoryData(&#123;</span><br><span class="line">        id:categoryId</span><br><span class="line">    &#125;,function (data) &#123;</span><br><span class="line">        /*二级分类默认*/</span><br><span class="line">        $(&apos;.cate_right ul&apos;).html(template(&apos;secondTemplate&apos;,data));</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="二级分类渲染："><a href="#二级分类渲染：" class="headerlink" title="二级分类渲染："></a>二级分类渲染：</h4><ol>
+<li><p>给一级分类绑定on（’tap‘）事件</p>
+</li>
+<li><p>判断当前有没有被选中，有则不加载</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if($(this).parent().hasClass(&apos;now&apos;)) return false;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>移除所有li的now样式，给当前li添加now样式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;.cate_left li&apos;).removeClass(&apos;now&apos;);</span><br><span class="line">$(this).parent().addClass(&apos;now&apos;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取当前a链接的id，渲染对应的二级分类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">render( $(this).attr(&apos;data-id&apos;));</span><br><span class="line">var render = function (categoryId) &#123;</span><br><span class="line">    getSecondCategoryData(&#123;</span><br><span class="line">        id:categoryId</span><br><span class="line">    &#125;,function (data) &#123;</span><br><span class="line">        $(&apos;.cate_right ul&apos;).html(template(&apos;secondTemplate&apos;,data));</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="三、搜索"><a href="#三、搜索" class="headerlink" title="三、搜索"></a>三、搜索</h2><h4 id="1-搜索功能"><a href="#1-搜索功能" class="headerlink" title="1.搜索功能"></a>1.搜索功能</h4><p>1.获取搜索框数据，跳转到搜索页面并传入url参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var key = $.trim($(&apos;input&apos;).val());					//获取数据</span><br><span class="line">location.href = &apos;searchList.html?key=&apos;+key;			//跳转页面</span><br></pre></td></tr></table></figure>
+<p>2.把关键字输出到搜索框</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var urlParams = CT.getParamsByUrl();				//获取关键字为键值</span><br><span class="line">var $input = $(&apos;input&apos;).val(urlParams.key || &apos;&apos;);	//输出</span><br></pre></td></tr></table></figure>
+<p>3.根据关键字发送请求，渲染数据</p>
+<h4 id="2-排序功能"><a href="#2-排序功能" class="headerlink" title="2.排序功能"></a>2.排序功能</h4><p>1.用户点击排序的时候，修改箭头样式</p>
+<p>2.根据箭头样式，判断升序还是降序</p>
+<p>3.获取对应的参数，发送ajax请求，并渲染页面</p>
+<h4 id="3-上拉刷新功能"><a href="#3-上拉刷新功能" class="headerlink" title="3.上拉刷新功能"></a>3.上拉刷新功能</h4><p>1.设置mui的下拉/上拉初始化</p>
+<p>2.在下拉模块的回调函数中，重置排序，重新渲染页面</p>
+<h4 id="4-下拉加载功能"><a href="#4-下拉加载功能" class="headerlink" title="4.下拉加载功能"></a>4.下拉加载功能</h4><p>1.在mui的下拉模块回调函数中，发送ajax请求，传入页数，并渲染页面</p>
+<h2 id="四、购物车"><a href="#四、购物车" class="headerlink" title="四、购物车"></a>四、购物车</h2><h4 id="1-刷新功能"><a href="#1-刷新功能" class="headerlink" title="1.刷新功能"></a>1.刷新功能</h4><p>​    初始化下拉插件，在下拉的同时发送请求，渲染数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">mui.init(&#123;</span><br><span class="line">    pullRefresh: &#123;</span><br><span class="line">        container: &quot;#refreshContainer&quot;,</span><br><span class="line">        down: &#123;</span><br><span class="line">            auto:true,</span><br><span class="line">            callback:function () &#123;</span><br><span class="line">                /*1.初始化页面  自动下拉刷新*/</span><br><span class="line">                var that = this;</span><br><span class="line">                /*定义一个全局的 下拉组件对象  使用里面的方法*/</span><br><span class="line">                //window.down = this;</span><br><span class="line">                setTimeout(function () &#123;</span><br><span class="line">                    getCartData(function (data) &#123;</span><br><span class="line">                        /*渲染页面*/</span><br><span class="line">                        $(&apos;.mui-table-view&apos;).html(template(&apos;cart&apos;,data));</span><br><span class="line">                        /*加载状态隐藏*/</span><br><span class="line">                        that.endPulldownToRefresh();</span><br><span class="line">                        /*注册刷新事件 防止多次绑定  先解绑再次绑定*/</span><br><span class="line">                        $(&apos;.fa-refresh&apos;).off(&apos;click&apos;).on(&apos;tap&apos;,function () &#123;</span><br><span class="line">                            /*重新 加载*/</span><br><span class="line">                            /*4.点击刷新按钮  刷新*/</span><br><span class="line">                            that.pulldownLoading();</span><br><span class="line">                        &#125;);</span><br><span class="line">                    &#125;);</span><br><span class="line">                &#125;,1000);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="2-侧滑点击编辑"><a href="#2-侧滑点击编辑" class="headerlink" title="2.侧滑点击编辑"></a>2.侧滑点击编辑</h4><ol>
+<li>拿到尺码和数量等数据，并渲染到编辑页面中</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var id = $(this).parent().attr(&apos;data-id&apos;);</span><br><span class="line">var item = CT.getItemById(window.cartData.data,id);</span><br><span class="line">var html = template(&apos;edit&apos;,item);</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>用mui插件完成订单选择功能</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mui.confirm(html.replace(/\n/g,&apos;&apos;), &apos;商品编辑&apos;, [&apos;确认&apos;, &apos;取消&apos;], function(e) &#123;</span><br><span class="line">    if (e.index == 0) &#123;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>获取页面元素中尺寸和数量的值</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var size = $(&apos;.btn_size.now&apos;).html();</span><br><span class="line">var num = $(&apos;.p_number input&apos;).val();</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>输入对应参数，发送ajax请求</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CT.loginAjax(&#123;</span><br><span class="line">    type:&apos;post&apos;,</span><br><span class="line">    url:&apos;/cart/updateCart&apos;,</span><br><span class="line">    data:&#123;</span><br><span class="line">        id:id,</span><br><span class="line">        size:size,</span><br><span class="line">        num:num</span><br><span class="line">    &#125;,</span><br><span class="line">    dataType:&apos;json&apos;,</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>再次渲染页面</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">success:function (data) &#123;</span><br><span class="line">    if(data.success == true)&#123;</span><br><span class="line">        /*窗口关闭*/</span><br><span class="line">        /*列表更新*/</span><br><span class="line">        item.num = num;</span><br><span class="line">        item.size = size;</span><br><span class="line">        /*缓存的数据  window.cartData.data 已修改*/</span><br><span class="line">        /*渲染页面*/</span><br><span class="line">        $(&apos;.mui-table-view&apos;).html(template(&apos;cart&apos;,window.cartData));</span><br><span class="line">        /*整个列表重新渲染*/</span><br><span class="line">        //setAmount();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-侧滑点击删除"><a href="#3-侧滑点击删除" class="headerlink" title="3.侧滑点击删除"></a>3.侧滑点击删除</h4>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/13/webpack配置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/13/webpack配置/" itemprop="url">webpack配置</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-13T15:59:33+08:00">
+                2019-01-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>四大配置项：</p>
+<p>entry / output / module / plugins  </p>
+<p>完整版：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">var pkg = require(&apos;./package.json&apos;);</span><br><span class="line">var webpack = require(&quot;webpack&quot;);</span><br><span class="line">var borwerOpen = require(&quot;open-browser-webpack-plugin&quot;);</span><br><span class="line">var HTMLTemp = require(&quot;html-webpack-plugin&quot;)</span><br><span class="line">var path = require(&quot;path&quot;)</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">  entry:&#123;</span><br><span class="line">      app:path.resolve(__dirname, &apos;src/app.js&apos;),</span><br><span class="line">      vendor: Object.keys(pkg.dependencies)</span><br><span class="line">  &#125;,</span><br><span class="line">  output:&#123;</span><br><span class="line">    path:__dirname + &quot;/dist&quot;,</span><br><span class="line">    filename:&quot;bundle.js&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  resolve:&#123;</span><br><span class="line">       extensions:[&apos;.js&apos;,&apos;.jsx&apos;]</span><br><span class="line">  &#125;,</span><br><span class="line">  module:&#123;</span><br><span class="line">    rules:[</span><br><span class="line">      &#123;test:/\.json$/,use:&quot;json-loader&quot;&#125;,</span><br><span class="line">      &#123;test:/\.(js|jsx)$/,use:&quot;babel-loader&quot;&#125;,</span><br><span class="line">      &#123;test:/\.css$/,use:[&quot;style-loader&quot;,&quot;css-loader&quot;]&#125;,</span><br><span class="line">      &#123;test:/\.(png|jpg|gif|jpeg|svg)$/,use:&quot;url-loader?limit=2048&quot;&#125;,</span><br><span class="line">      &#123;test:/\.less$/,use:[&quot;style-loader&quot;,&quot;css-loader&quot;,&quot;less-loader&quot;]&#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  plugins:[</span><br><span class="line">    new webpack.BannerPlugin(&quot;@Copyright iwen 2018/7/31&quot;),</span><br><span class="line">    new borwerOpen(&#123;</span><br><span class="line">      url:&quot;http://localhost:8080&quot;</span><br><span class="line">    &#125;),</span><br><span class="line">    new webpack.DefinePlugin(&#123;</span><br><span class="line">      &apos;process.env&apos;:&#123;</span><br><span class="line">        &apos;NODE_ENV&apos;: JSON.stringify(process.env.NODE_ENV)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;),</span><br><span class="line">    new webpack.optimize.UglifyJsPlugin(&#123;</span><br><span class="line">        compress: &#123;</span><br><span class="line">          warnings: false</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;),</span><br><span class="line">    new webpack.optimize.CommonsChunkPlugin(&#123;</span><br><span class="line">      name: &apos;vendor&apos;,</span><br><span class="line">      filename: &apos;/js/[name].[chunkhash:8].js&apos;</span><br><span class="line">    &#125;),</span><br><span class="line">    new HTMLTemp(&#123;</span><br><span class="line">      template:__dirname + &quot;/src/index.temp.html&quot;</span><br><span class="line">    &#125;),</span><br><span class="line">    new webpack.DefinePlugin(&#123;</span><br><span class="line">      __DEV__: JSON.stringify(JSON.parse((process.env.NODE_ENV == &apos;dev&apos;) || &apos;false&apos;))</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h2><p>全局安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm i -g webpack				//安装最新版本</span><br><span class="line">||</span><br><span class="line">npm i -g webpack@3.x			//安装指定版本</span><br></pre></td></tr></table></figure>
+<p><code>i == install</code>    安装</p>
+<p><code>-g == global</code>    全局</p>
+<p>本地安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -D webpack</span><br></pre></td></tr></table></figure>
+<p><code>-D == --save-dev</code></p>
+<p>项目初始化：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init -y</span><br></pre></td></tr></table></figure>
+<p><code>-y</code> 为默认yes的意思</p>
+<p>初始化完毕会创建一个package.json的文件</p>
+<p>创建文件夹和文件：</p>
+<ul>
+<li>src                    //源码文件<ul>
+<li>index.js            //主要入口文件</li>
+</ul>
+</li>
+<li>dist                                //编译之后的文件</li>
+<li>webpack.config.js      //配置文件</li>
+</ul>
+<h2 id="二、配置入口和出口"><a href="#二、配置入口和出口" class="headerlink" title="二、配置入口和出口"></a>二、配置入口和出口</h2><p>在webpack.config.js文件中配置：</p>
+<p>入口：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">    entry: __dirname + &apos;/src/index.js&apos;,</span><br></pre></td></tr></table></figure>
+<p>出口：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">output: &#123;</span><br><span class="line">    path: __dirname + &apos;/dist&apos;,</span><br><span class="line">    filename: &apos;bundle.js&apos;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p><code>__dirname</code> 为当前文件夹路径</p>
+<p>在本地cmd输入webpack，即会自动生成一个打包文件bundle.js</p>
+<h2 id="三、模块"><a href="#三、模块" class="headerlink" title="三、模块"></a>三、模块</h2><h3 id="1-webpack-dev-server"><a href="#1-webpack-dev-server" class="headerlink" title="1.webpack-dev-server"></a>1.webpack-dev-server</h3><p>webpack-dev-server 服务器既需要在全局安装，也需要在本地安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g webpack-dev-server@2.x</span><br><span class="line">npm install -D webpack-dev-server@2.x</span><br></pre></td></tr></table></figure>
+<p>在 package.json 文件中修改：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;dev&quot;: &quot;webpack-dev-server --open --content-base dist --inline --hot&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>即添加了webpack-dev-server的快捷启动方式</p>
+<ul>
+<li>–open    自动打开网页</li>
+<li>–content-base dist    指定服务器运行根目录为dist</li>
+<li>–inline –hot    在线更新</li>
+<li>–port       修改端口</li>
+</ul>
+<p>在本地运行cmd输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dev</span><br></pre></td></tr></table></figure>
+<p>即可开启服务器</p>
+<h3 id="2-loader"><a href="#2-loader" class="headerlink" title="2.loader"></a>2.loader</h3><p> loader是webpack可以通过配置脚本，或者外部依赖来执行一些功能</p>
+<p>配置loaders：</p>
+<ul>
+<li>test：一个匹配loader要做操作的文件的一个正则表达式（必须）</li>
+<li>loader(use)：loader要执行的任务的名字（必须）</li>
+<li>options:为loader提供一些外部选项配置(可选项)</li>
+<li>include/exclude: 手动添加必须处理的文件/文件夹,或屏蔽不需要处理的文件/文件夹（可选）</li>
+</ul>
+<h4 id="es6-gt-es5解析"><a href="#es6-gt-es5解析" class="headerlink" title="es6 -&gt; es5解析"></a>es6 -&gt; es5解析</h4><p>安装本地依赖：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -D babel-core babel-loader babel-preset-es2015</span><br></pre></td></tr></table></figure>
+<p>配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;test: /\.js$/, use: &apos;babel-loader&apos;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="CSS处理"><a href="#CSS处理" class="headerlink" title="CSS处理"></a>CSS处理</h4><p>安装本地依赖：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -D css-loader style-loader</span><br></pre></td></tr></table></figure>
+<p>配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;test: /\.css$/, use: [&apos;style-loader&apos;, &apos;css-loader&apos;]&#125;,</span><br></pre></td></tr></table></figure>
+<h4 id="图片配置"><a href="#图片配置" class="headerlink" title="图片配置"></a>图片配置</h4><p>安装本地依赖：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -D file-loader url-loader</span><br></pre></td></tr></table></figure>
+<p>配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;test: /\.(png|jpg|git|jpeg|svg)$/&#125;,</span><br></pre></td></tr></table></figure>
+<h4 id="LESS和SASS"><a href="#LESS和SASS" class="headerlink" title="LESS和SASS"></a>LESS和SASS</h4><p>安装本地依赖：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -D less less-loader</span><br></pre></td></tr></table></figure>
+<p>配置 ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;test: /\.less$/,use: [&apos;style-loader&apos;, &apos;css-loader&apos;, &apos;less-loader&apos;]&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="四、插件"><a href="#四、插件" class="headerlink" title="四、插件"></a>四、插件</h2><p>在plugins之下</p>
+<h3 id="1-HTML模板"><a href="#1-HTML模板" class="headerlink" title="1.HTML模板"></a>1.HTML模板</h3><p>安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -D html-webpack-plugin</span><br></pre></td></tr></table></figure>
+<p>配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var HTMLTemp = require(&apos;html-webpack-plugin&apos;)</span><br><span class="line"> plugins: [</span><br><span class="line">        new HTMLTemp(&#123;</span><br><span class="line">            template: __dirname + &apos;/src/index.temp.html&apos;</span><br><span class="line">        &#125;)</span><br><span class="line">    ]</span><br></pre></td></tr></table></figure>
+<p>可自动生成dist和bundle.js打包文件</p>
+<h3 id="2-内置插件省略后缀名"><a href="#2-内置插件省略后缀名" class="headerlink" title="2.内置插件省略后缀名"></a>2.内置插件省略后缀名</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">resolve:&#123;</span><br><span class="line"></span><br><span class="line">       extensions:[&apos;.js&apos;,&apos;.jsx&apos;]</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>与module同级</p>
+<h2 id="五、生产环境的搭建"><a href="#五、生产环境的搭建" class="headerlink" title="五、生产环境的搭建"></a>五、生产环境的搭建</h2><p>  安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">​   npm install -D cross-env</span><br><span class="line">    npm install -D babel-plugin-react-transform</span><br><span class="line">    npm install -D react-transform-hmr</span><br><span class="line">    npm install -D babel-preset-stage-2</span><br></pre></td></tr></table></figure>
+<p>在根目录创建webpack.production.config.js 文件，加上基本的配置代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">var pkg = require(&apos;./package.json&apos;);</span><br><span class="line">var webpack = require(&quot;webpack&quot;);</span><br><span class="line">var borwerOpen = require(&quot;open-browser-webpack-plugin&quot;);</span><br><span class="line">var HTMLTemp = require(&quot;html-webpack-plugin&quot;)</span><br><span class="line">var path = require(&quot;path&quot;)</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">  entry:&#123;</span><br><span class="line">      app:path.resolve(__dirname, &apos;src/app.js&apos;),</span><br><span class="line">      vendor: Object.keys(pkg.dependencies)</span><br><span class="line">  &#125;,</span><br><span class="line">  output:&#123;</span><br><span class="line">    path:__dirname + &quot;/dist&quot;,</span><br><span class="line">    filename:&quot;bundle.js&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  resolve:&#123;</span><br><span class="line">       extensions:[&apos;.js&apos;,&apos;.jsx&apos;]</span><br><span class="line">  &#125;,</span><br><span class="line">  module:&#123;</span><br><span class="line">    rules:[</span><br><span class="line">      &#123;test:/\.json$/,use:&quot;json-loader&quot;&#125;,</span><br><span class="line">      &#123;test:/\.(js|jsx)$/,use:&quot;babel-loader&quot;&#125;,</span><br><span class="line">      &#123;test:/\.css$/,use:[&quot;style-loader&quot;,&quot;css-loader&quot;]&#125;,</span><br><span class="line">      &#123;test:/\.(png|jpg|gif|jpeg|svg)$/,use:&quot;url-loader?limit=2048&quot;&#125;,</span><br><span class="line">      &#123;test:/\.less$/,use:[&quot;style-loader&quot;,&quot;css-loader&quot;,&quot;less-loader&quot;]&#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  plugins:[</span><br><span class="line">    new webpack.BannerPlugin(&quot;@Copyright iwen 2018/7/31&quot;),</span><br><span class="line">    new borwerOpen(&#123;</span><br><span class="line">      url:&quot;http://localhost:8080&quot;</span><br><span class="line">    &#125;),</span><br><span class="line">    new webpack.DefinePlugin(&#123;</span><br><span class="line">      &apos;process.env&apos;:&#123;</span><br><span class="line">        &apos;NODE_ENV&apos;: JSON.stringify(process.env.NODE_ENV)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;),</span><br><span class="line">    new webpack.optimize.UglifyJsPlugin(&#123;</span><br><span class="line">        compress: &#123;</span><br><span class="line">          warnings: false</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;),</span><br><span class="line">    new webpack.optimize.CommonsChunkPlugin(&#123;</span><br><span class="line">      name: &apos;vendor&apos;,</span><br><span class="line">      filename: &apos;/js/[name].[chunkhash:8].js&apos;</span><br><span class="line">    &#125;),</span><br><span class="line">    new HTMLTemp(&#123;</span><br><span class="line">      template:__dirname + &quot;/src/index.temp.html&quot;</span><br><span class="line">    &#125;),</span><br><span class="line">    new webpack.DefinePlugin(&#123;</span><br><span class="line">      __DEV__: JSON.stringify(JSON.parse((process.env.NODE_ENV == &apos;dev&apos;) || &apos;false&apos;))</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在package.json  文件  scripts  选项 添加build和dev</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&quot;build&quot;: &quot;cross-env NODE_ENV=production webpack --config ./webpack.production.config.js --progress&quot;,</span><br><span class="line">   &quot;dev&quot;: &quot;cross-env NODE_ENV=dev webpack-dev-server --content-base dist --progress --inline&quot;</span><br></pre></td></tr></table></figure>
+<p>在终端中执行 npm run build 命令 </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/23/浅克隆与深克隆/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/23/浅克隆与深克隆/" itemprop="url">浅克隆与深克隆</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-23T16:14:33+08:00">
+                2018-08-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li>基本数据类型存储在栈中</li>
+<li>引用数据类型，名存储在栈中，值存储在堆中。栈会提供一个引用的地址指向堆内存中的值</li>
+</ul>
+<h2 id="一、浅克隆"><a href="#一、浅克隆" class="headerlink" title="一、浅克隆"></a>一、浅克隆</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p><strong>浅克隆</strong>之所以被称为<strong>浅克隆</strong>，是因为对象只会被克隆最外部的一层,至于更深层的对象,则依然是通过引用指向同一块堆内存. </p>
+<p>如果改变了被克隆对象的数据，那么克隆对象的数据也会随之改变</p>
+<h3 id="1-遍历其所有属性"><a href="#1-遍历其所有属性" class="headerlink" title="1.遍历其所有属性"></a>1.遍历其所有属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function shallowClone(o) &#123;</span><br><span class="line">  const obj = &#123;&#125;;</span><br><span class="line">  for ( let key in o) &#123;</span><br><span class="line">    obj[key] = o[key];</span><br><span class="line">  &#125;</span><br><span class="line">  return obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-Object-assign"><a href="#2-Object-assign" class="headerlink" title="2.Object.assign()"></a>2.Object.assign()</h3><p>用于将源对象的所有可枚举属性复制到目标对象中，属于浅拷贝</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Object.assign(target,object2,object3);  </span><br><span class="line">// 第一个参数是目标对象，后面的参数是源对象</span><br><span class="line">target;  // &#123;a: 1, b: 2, c: 3</span><br></pre></td></tr></table></figure>
+<h3 id="3-splice"><a href="#3-splice" class="headerlink" title="3.splice()"></a>3.splice()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let a=[0,1,[2,3],4];</span><br><span class="line">b=a.slice();</span><br></pre></td></tr></table></figure>
+<h2 id="二、深克隆"><a href="#二、深克隆" class="headerlink" title="二、深克隆"></a>二、深克隆</h2><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><h3 id="1-JSON-parse方法"><a href="#1-JSON-parse方法" class="headerlink" title="1.JSON.parse方法"></a>1.JSON.parse方法</h3><ul>
+<li>用stringify方法将JS对象序列化成JSON字符串 </li>
+<li>再用parse方法将JSON字符串反序列化成JS对象 </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const oldObj = &#123;</span><br><span class="line">  a: 1,</span><br><span class="line">  b: [ &apos;e&apos;, &apos;f&apos;, &apos;g&apos; ],</span><br><span class="line">  c: &#123; h: &#123; i: 2 &#125; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const newObj = JSON.parse(JSON.stringify(oldObj));</span><br></pre></td></tr></table></figure>
+<p>缺陷：</p>
+<blockquote>
+<p>1.他无法实现对函数 、正则等特殊对象的克隆</p>
+</blockquote>
+<blockquote>
+<p>2.会抛弃对象的constructor,所有的构造函数会指向Object</p>
+</blockquote>
+<blockquote>
+<p>3.对象有循环引用,会报错</p>
+</blockquote>
+<h3 id="2-递归"><a href="#2-递归" class="headerlink" title="2.递归"></a>2.递归</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function deepClone(obj)&#123;</span><br><span class="line">    let objClone = Array.isArray(obj) ? [] : &#123;&#125;;</span><br><span class="line">    if(obj &amp;&amp; typeof obj === &quot;object&quot;)&#123;</span><br><span class="line">        for(key in obj)&#123;</span><br><span class="line">        	//判断是属性还是原型(t/f)</span><br><span class="line">            if(obj.hasOwnProperty(key))&#123;</span><br><span class="line">                //判断ojb子元素是否为对象，如果是，递归复制</span><br><span class="line">                if(obj[key] &amp;&amp; typeof obj[key] === &quot;object&quot;)&#123;</span><br><span class="line">                    objClone[key] = deepClone(obj[key]);</span><br><span class="line">                &#125;else&#123;</span><br><span class="line">                    //如果不是，简单复制</span><br><span class="line">                    objClone[key] = obj[key];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return objClone;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>定义一个空对象</li>
+<li>如果obj存在且为对象则循环</li>
+<li>判断这个属性是自身的还是原型的</li>
+<li>判断这个属性是不是一个对象</li>
+<li>是则递归，并复制给objclone</li>
+<li>不是则简单赋值</li>
+</ul>
+<h3 id="3-extend"><a href="#3-extend" class="headerlink" title="3.$.extend"></a>3.<strong>$.extend</strong></h3><p><strong>$.extend( [deep ], target, object1 [, objectN ] )</strong> </p>
+<ul>
+<li><strong>deep </strong>          表示是否深拷贝，为true为深拷贝，为false，则为浅拷贝</li>
+<li><strong>target</strong>          <strong>Object</strong>类型 目标对象，其他对象的成员属性将被附加到该对象上。</li>
+<li><strong>object1       objectN</strong>可选。 Object类型 第一个以及第N个被合并的对象。 </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let a=[0,1,[2,3],4],</span><br><span class="line">    b=$.extend(true,[],a);</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -392,9 +1612,9 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -402,6 +1622,15 @@
 
             
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
             
 
           </nav>

@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="JavaScript,">
 
 
 
@@ -80,13 +80,14 @@
 
 
 <meta name="description" content="基本数据类型存储在栈中 引用数据类型，名存储在栈中，值存储在堆中。栈会提供一个引用的地址指向堆内存中的值  一、浅克隆定义浅克隆之所以被称为浅克隆，是因为对象只会被克隆最外部的一层,至于更深层的对象,则依然是通过引用指向同一块堆内存.  如果改变了被克隆对象的数据，那么克隆对象的数据也会随之改变 1.遍历其所有属性1234567function shallowClone(o) &amp;#123;  c">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浅克隆与深克隆">
 <meta property="og:url" content="http://yoursite.com/2018/08/23/浅克隆与深克隆/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="基本数据类型存储在栈中 引用数据类型，名存储在栈中，值存储在堆中。栈会提供一个引用的地址指向堆内存中的值  一、浅克隆定义浅克隆之所以被称为浅克隆，是因为对象只会被克隆最外部的一层,至于更深层的对象,则依然是通过引用指向同一块堆内存.  如果改变了被克隆对象的数据，那么克隆对象的数据也会随之改变 1.遍历其所有属性1234567function shallowClone(o) &amp;#123;  c">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-23T08:14:53.456Z">
+<meta property="og:updated_time" content="2019-04-13T15:13:44.676Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅克隆与深克隆">
 <meta name="twitter:description" content="基本数据类型存储在栈中 引用数据类型，名存储在栈中，值存储在堆中。栈会提供一个引用的地址指向堆内存中的值  一、浅克隆定义浅克隆之所以被称为浅克隆，是因为对象只会被克隆最外部的一层,至于更深层的对象,则依然是通过引用指向同一块堆内存.  如果改变了被克隆对象的数据，那么克隆对象的数据也会随之改变 1.遍历其所有属性1234567function shallowClone(o) &amp;#123;  c">
@@ -183,17 +184,27 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
             
             Home
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
             
             Archives
           </a>
@@ -354,6 +365,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
 
       
       
@@ -363,8 +380,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/26/this的五种绑定/" rel="next" title="this的五种绑定">
-                <i class="fa fa-chevron-left"></i> this的五种绑定
+              <a href="/2018/03/12/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
               </a>
             
           </div>
@@ -450,9 +467,9 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -460,6 +477,15 @@
 
             
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
             
 
           </nav>

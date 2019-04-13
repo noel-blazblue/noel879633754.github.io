@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="浏览器缓存HTTP缓存 减少了冗余的数据传输 缓解了服务器的压力 加快了客户端加载网页的速度       第一次请求资源时，服务器返回资源，并在respone header头中回传资源的缓存参数 。 第二次请求时，浏览器判断这些请求参数  1.看看是否命中强缓存，如果命中，就直接200，使用缓存了。 2.如果没有命中强缓存，就把请求参数加到请求头，发到服务器检查是否命中协商缓存。 3.如果命中协商">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2019/04/13/浏览器与服务器/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="浏览器缓存HTTP缓存 减少了冗余的数据传输 缓解了服务器的压力 加快了客户端加载网页的速度       第一次请求资源时，服务器返回资源，并在respone header头中回传资源的缓存参数 。 第二次请求时，浏览器判断这些请求参数  1.看看是否命中强缓存，如果命中，就直接200，使用缓存了。 2.如果没有命中强缓存，就把请求参数加到请求头，发到服务器检查是否命中协商缓存。 3.如果命中协商">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/4845448-39248bf4a3b45c3e?imageMogr2/auto-orient/strip%7CimageView2/2/w/800/format/webp">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/8/166f2735c584653e?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/4845448-217723260f75ed90">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/4845448-a22cef109d00aa79?imageMogr2/auto-orient/strip%7CimageView2/2/w/800/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/4845448-f0cd7f084e812844?imageMogr2/auto-orient/strip%7CimageView2/2/w/674/format/webp">
+<meta property="og:image" content="https://tuchuang-zc.oss-cn-shenzhen.aliyuncs.com/site-pictures/critical-rendering-path.png">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/2/14/168e9d9050b9d08a?imageslim">
+<meta property="og:updated_time" content="2019-04-13T07:15:33.754Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="浏览器缓存HTTP缓存 减少了冗余的数据传输 缓解了服务器的压力 加快了客户端加载网页的速度       第一次请求资源时，服务器返回资源，并在respone header头中回传资源的缓存参数 。 第二次请求时，浏览器判断这些请求参数  1.看看是否命中强缓存，如果命中，就直接200，使用缓存了。 2.如果没有命中强缓存，就把请求参数加到请求头，发到服务器检查是否命中协商缓存。 3.如果命中协商">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/4845448-39248bf4a3b45c3e?imageMogr2/auto-orient/strip%7CimageView2/2/w/800/format/webp">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/04/13/浏览器与服务器/">
+
+
+
+
+
+  <title> | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/13/浏览器与服务器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-13T23:19:03+08:00">
+                2019-04-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h2><h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3><h4 id="HTTP缓存"><a href="#HTTP缓存" class="headerlink" title="HTTP缓存"></a>HTTP缓存</h4><ol>
+<li>减少了冗余的数据传输</li>
+<li>缓解了服务器的压力</li>
+<li>加快了客户端加载网页的速度 </li>
+</ol>
+<p><img src="https://upload-images.jianshu.io/upload_images/4845448-39248bf4a3b45c3e?imageMogr2/auto-orient/strip%7CimageView2/2/w/800/format/webp" alt="img"> </p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/11/8/166f2735c584653e?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="http-cdn-http-process"> </p>
+<p>第一次请求资源时，服务器返回资源，并在respone header头中回传资源的缓存参数 。</p>
+<p>第二次请求时，浏览器判断这些请求参数 </p>
+<p>1.看看是否命中强缓存，如果命中，就直接200，使用缓存了。</p>
+<p>2.如果没有命中强缓存，就把请求参数加到请求头，发到服务器检查是否命中协商缓存。</p>
+<p>3.如果命中协商缓存，服务器会返回 304 告诉浏览器使用本地缓存。</p>
+<p>4.否则，返回最新的资源。</p>
+<p>5.强缓存 </p>
+<ul>
+<li>Expires</li>
+<li>Cache-control</li>
+</ul>
+<p>6.协商缓存 </p>
+<ul>
+<li>Last-Modified/If-Modified-Since</li>
+<li>Etag/If-None-Match</li>
+</ul>
+<h5 id="强制缓存"><a href="#强制缓存" class="headerlink" title="强制缓存"></a><strong>强制缓存</strong></h5><p><img src="https://upload-images.jianshu.io/upload_images/4845448-217723260f75ed90" alt="img"> </p>
+<p>强制缓存在缓存数据未失效的情况下（即Cache-Control的max-age没有过期或者Expires的缓存时间没有过期） ，那么就会直接使用浏览器的缓存数据，不会再向服务器发送任何请求。 </p>
+<h5 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a><strong>协商缓存</strong></h5><p><img src="https://upload-images.jianshu.io/upload_images/4845448-a22cef109d00aa79?imageMogr2/auto-orient/strip%7CimageView2/2/w/800/format/webp" alt="img"> </p>
+<p>那么浏览器第二次请求时就会与服务器进行协商，与服务器端对比判断资源是否进行了修改更新。</p>
+<p>如果服务器端的资源没有修改，那么就会返回304状态码，告诉浏览器可以使用缓存中的数据，这样就减少了服务器的数据传输压力。</p>
+<p>如果数据有更新就会返回200状态码，服务器就会返回更新后的资源并且将缓存信息一起返回。</p>
+<ul>
+<li>ETag/If-Not-Match <ul>
+<li>第一次请求，响应头 ETag 返回一个hash值 </li>
+<li>第二次请求，请求头 If-Not-Match 带上 Etag 的值</li>
+</ul>
+</li>
+<li>Last-Modified/If-Modified-Since  <ul>
+<li>第一次请求，响应头 Last-Modified 返回 GMT 格式的最后修改时间 </li>
+<li>第二次请求，请求头 If-Modified-Since  带上 Last-Modified 的值</li>
+</ul>
+</li>
+</ul>
+<h5 id="私有缓存与共享缓存"><a href="#私有缓存与共享缓存" class="headerlink" title="私有缓存与共享缓存"></a>私有缓存与共享缓存</h5><p><strong>私有缓存（浏览器级缓存）</strong><br>私有缓存只能用于单独的用户：Cache-Control: Private</p>
+<p><strong>共享缓存（代理级缓存）</strong><br>共享缓存可以被多个用户使用: Cache-Control: Public</p>
+<h4 id="浏览器缓存"><a href="#浏览器缓存" class="headerlink" title="浏览器缓存"></a>浏览器缓存</h4><p>  浏览器缓存有：cookie、sessionStorage、localStorage </p>
+<p><img src="https://upload-images.jianshu.io/upload_images/4845448-f0cd7f084e812844?imageMogr2/auto-orient/strip%7CimageView2/2/w/674/format/webp" alt="img"> </p>
+<h3 id="浏览器架构"><a href="#浏览器架构" class="headerlink" title="浏览器架构"></a>浏览器架构</h3><h3 id="重绘与回流"><a href="#重绘与回流" class="headerlink" title="重绘与回流"></a>重绘与回流</h3><p>当元素的样式发生变化时，浏览器需要触发更新，重新绘制元素。这个过程中，有两种类型的操作，即重绘与回流。 </p>
+<ul>
+<li><strong>重绘(repaint)</strong>: 当元素样式的改变不影响布局时，浏览器将使用重绘对元素进行更新，此时由于只需要UI层面的重新像素绘制，因此 <strong>损耗较少</strong></li>
+<li><p><strong>回流(reflow)</strong>: 当元素的尺寸、结构或触发某些属性时，浏览器会重新渲染页面，称为回流。此时，浏览器需要重新经过计算，计算后还需要重新页面布局，因此是较重的操作。会触发回流的操作:</p>
+<ul>
+<li>页面初次渲染</li>
+<li>浏览器窗口大小改变</li>
+<li>元素尺寸、位置、内容发生改变</li>
+<li>元素字体大小变化</li>
+<li>添加或者删除可见的 dom 元素</li>
+<li>激活 CSS 伪类（例如：:hover）<ul>
+<li>clientWidth、clientHeight、clientTop、clientLeft</li>
+<li>offsetWidth、offsetHeight、offsetTop、offsetLeft</li>
+<li>scrollWidth、scrollHeight、scrollTop、scrollLeft</li>
+<li>getComputedStyle()</li>
+<li>getBoundingClientRect()</li>
+<li>scrollTo()</li>
+</ul>
+</li>
+</ul>
+<p><strong>回流必定触发重绘，重绘不一定触发回流。重绘的开销较小，回流的代价较高。</strong> </p>
+</li>
+</ul>
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子:"></a>例子:</h4><ul>
+<li>css<ul>
+<li>避免使用<code>table</code>布局</li>
+<li>将动画效果应用到<code>position</code>属性为<code>absolute</code>或<code>fixed</code>的元素上</li>
+</ul>
+</li>
+<li>javascript<ul>
+<li>避免频繁操作样式，可汇总后统一 <strong>一次修改</strong></li>
+<li>尽量使用<code>class</code>进行样式修改</li>
+<li>减少<code>dom</code>的增删次数，可使用 <strong>字符串</strong> 或者 <code>documentFragment</code> 一次性插入</li>
+<li>极限优化时，修改样式可将其<code>display: none</code>后修改</li>
+<li>避免多次触发上面提到的那些会触发回流的方法，可以的话尽量用 <strong>变量存住</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="Web-Worker"><a href="#Web-Worker" class="headerlink" title="Web Worker"></a>Web Worker</h3><p>现代浏览器为<code>JavaScript</code>创造的 <strong>多线程环境</strong>。可以将部分任务分配到<code>worker</code>线程并行运行，等到 Worker 线程完成计算任务，再把结果返回给主线程。 </p>
+<p>这样的好处是，一些计算密集型或高延迟的任务，被 Worker 线程负担了，主线程（通常负责 UI 交互）就会很流畅，不会被阻塞或拖慢。 </p>
+<p>两个线程可 <strong>独立运行，互不干扰</strong>，可通过自带的 <strong>消息机制</strong> 相互通信。</p>
+<p><strong>基本用法:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 创建 worker</span><br><span class="line">const worker = new Worker(&apos;work.js&apos;);</span><br><span class="line"></span><br><span class="line">// 向主进程推送消息</span><br><span class="line">worker.postMessage(&apos;Hello World&apos;);</span><br><span class="line"></span><br><span class="line">// 监听主进程来的消息</span><br><span class="line">worker.onmessage = function (event) &#123;</span><br><span class="line">  console.log(&apos;Received message &apos; + event.data);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="限制"><a href="#限制" class="headerlink" title="限制:"></a>限制:</h4><p>（1）<strong>同源限制</strong></p>
+<p>分配给 Worker 线程运行的脚本文件，必须与主线程的脚本文件同源。</p>
+<p>（2）<strong>DOM 限制</strong></p>
+<p>Worker 线程所在的全局对象，与主线程不一样，无法读取主线程所在网页的 DOM 对象，也无法使用<code>document</code>、<code>window</code>、<code>parent</code>这些对象。但是，Worker 线程可以<code>navigator</code>对象和<code>location</code>对象。</p>
+<p>（3）<strong>通信联系</strong></p>
+<p>Worker 线程和主线程不在同一个上下文环境，它们不能直接通信，必须通过消息完成。</p>
+<p>（4）<strong>脚本限制</strong></p>
+<p>Worker 线程不能执行<code>alert()</code>方法和<code>confirm()</code>方法，但可以使用 XMLHttpRequest 对象发出 AJAX 请求。</p>
+<p>（5）<strong>文件限制</strong></p>
+<p>Worker 线程无法读取本地文件，即不能打开本机的文件系统（<code>file://</code>），它所加载的，必须来自网络。</p>
+<h3 id="内存泄漏"><a href="#内存泄漏" class="headerlink" title="内存泄漏"></a>内存泄漏</h3><ul>
+<li>意外的<strong>全局变量</strong>: 无法被回收</li>
+<li><strong>定时器</strong>: 未被正确关闭，导致所引用的外部变量无法被释放</li>
+<li><strong>事件监听</strong>: 没有正确销毁 (低版本浏览器可能出现)</li>
+<li><strong>闭包</strong>: 会导致父级中的变量无法被释放</li>
+<li><strong>dom 引用</strong>: dom 元素被删除时，内存中的引用未被正确清空</li>
+</ul>
+<p>可用 chrome 中的 timeline 进行内存标记，可视化查看内存的变化情况，找出异常点。</p>
+<p>对于持续运行的服务进程（daemon），必须及时释放不再用到的内存。否则，内存占用越来越高，轻则影响系统性能，重则导致进程崩溃。 不再用到的内存，如果没有及时释放，就叫做内存泄漏（memory leak）。 </p>
+<ol>
+<li>打开开发者工具，选择 Timeline 面板</li>
+<li>在顶部的<code>Capture</code>字段里面勾选 Memory</li>
+</ol>
+<p><strong>解决：</strong></p>
+<p><a href="http://es6.ruanyifeng.com/#docs/set-map#WeakSet" target="_blank" rel="noopener">WeakSet</a> 和 <a href="http://es6.ruanyifeng.com/#docs/set-map#WeakMap" target="_blank" rel="noopener">WeakMap</a>。它们对于值的引用都是不计入垃圾回收机制的，所以名字里面才会有一个”Weak”，表示这是弱引用。 </p>
+<h3 id="垃圾回收机制"><a href="#垃圾回收机制" class="headerlink" title="垃圾回收机制"></a>垃圾回收机制</h3><p>定义和用法：垃圾回收机制(GC:Garbage Collection),执行环境负责管理代码执行过程中使用的内存。</p>
+<p>原理：垃圾收集器会定期（周期性）找出那些不在继续使用的变量，然后释放其内存。但是这个过程不是实时的，因为其开销比较大，所以垃圾回收器会按照固定的时间间隔周期性的执行。</p>
+<p><strong>标记清除：</strong></p>
+<p>定义和用法：当变量进入环境时，将变量标记”进入环境”，当变量离开环境时，标记为：”离开环境”。某一个时刻，垃圾回收器会过滤掉环境中的变量，以及被环境变量引用的变量，剩下的就是被视为准备回收的变量。</p>
+<p>到目前为止，IE、Firefox、Opera、Chrome、Safari的js实现使用的都是标记清除的垃圾回收策略或类似的策略，只不过垃圾收集的时间间隔互不相同。</p>
+<p><strong>引用计数：</strong></p>
+<p>定义和用法：引用计数是跟踪记录每个值被引用的次数。</p>
+<p>基本原理：就是变量的引用次数，被引用一次则加1，当这个引用计数为0时，被视为准备回收的对象。</p>
+<p><strong>内存管理：</strong></p>
+<p>IE6的垃圾回收是根据内存分配量运行的，当环境中的变量，对象，字符串达到一定数量时触发垃圾回收。垃圾回收器一直处于工作状态，严重影响浏览器性能。 </p>
+<p>IE7中，垃圾回收器会根据内存分配量与程序占用内存的比例进行动态调整，开始回收工作。 </p>
+<h3 id="页面生命周期"><a href="#页面生命周期" class="headerlink" title="页面生命周期"></a>页面生命周期</h3><p>HTML 页面的生命周期有三个重要事件：</p>
+<ul>
+<li><code>DOMContentLoaded</code> —— 浏览器加载 HTML，并构建 DOM 树，但像 <code>&lt;img&gt;</code> 和样式这样的资源可能还没有加载。</li>
+<li><code>load</code> —— 浏览器加载所有资源（图像，样式等）。</li>
+<li><code>beforeunload/unload</code> —— 当用户离开页面时。</li>
+</ul>
+<p>每个事件都是有用的：</p>
+<ul>
+<li><code>DOMContentLoaded</code> 事件 —— DOM 已经准备好，因此处理器可以查找 DOM 节点，并初始化接口。</li>
+<li><code>load</code> 事件 —— 额外资源被加载后，我们可以获取图像大小（如果在 HTML/CSS 中没有指定）等。</li>
+<li><code>beforeunload/unload</code> 事件 —— 用户即将离开：我们可以检查用户是否保存了修改，并在询问他是否真的要离开。</li>
+</ul>
+<h4 id="页面渲染流程"><a href="#页面渲染流程" class="headerlink" title="页面渲染流程"></a>页面渲染流程</h4><p><img src="https://tuchuang-zc.oss-cn-shenzhen.aliyuncs.com/site-pictures/critical-rendering-path.png" alt="img"> </p>
+<ol>
+<li>构建DOM树(DOM tree)：从上到下解析HTML文档生成DOM节点树（DOM tree），也叫内容树（content tree）；</li>
+<li>构建CSSOM(CSS Object Model)树：加载解析样式生成CSSOM树；</li>
+<li>执行JavaScript：加载并执行JavaScript代码（包括内联代码或外联JavaScript文件）；</li>
+<li><p>构建渲染树(render tree)：根据DOM树和CSSOM树,生成渲染树(render tree), 渲染树：按顺序展示在屏幕上的一系列矩形，这些矩形带有字体，颜色和尺寸等视觉属性。</p>
+</li>
+<li><p>布局（layout）：根据渲染树将节点树的每一个节点布局在屏幕上的正确位置；</p>
+</li>
+<li>绘制（painting）：遍历渲染树绘制所有节点，为每一个节点适用对应的样式，这一过程是通过UI后端模块完成；</li>
+</ol>
+<h4 id="阻塞渲染"><a href="#阻塞渲染" class="headerlink" title="阻塞渲染"></a>阻塞渲染</h4><h2 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h2><h3 id="get-post"><a href="#get-post" class="headerlink" title="get / post"></a>get / post</h3><ul>
+<li>get: 缓存、请求长度受限、会被历史保存记录<ul>
+<li>无副作用(不修改资源)，幂等(请求次数与资源无关)的场景</li>
+</ul>
+</li>
+<li>post: 安全、大数据、更多编码类型</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/14/168e9d9050b9d08a?imageslim" alt="img"> </p>
+<h3 id="SESSION"><a href="#SESSION" class="headerlink" title="SESSION"></a>SESSION</h3><p>SESSION是服务端的一种会话状态，用于存储有关用户会话的信息。</p>
+<p>Session 的工作机制是：为每个访问者创建一个唯一的 id (UID)，并基于这个 UID 来存储变量。UID 存储在 cookie 中，亦或通过 URL 进行传导 </p>
+<h3 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h3><ul>
+<li>XSS攻击: 注入恶意代码<ul>
+<li>cookie 设置 httpOnly</li>
+<li>转义页面上的输入内容和输出内容</li>
+</ul>
+</li>
+<li>CSRF: 跨站请求伪造，防护:<ul>
+<li>get 不修改数据</li>
+<li>不被第三方网站访问到用户的 cookie</li>
+<li>设置白名单，不被第三方网站请求</li>
+<li>请求校验</li>
+</ul>
+</li>
+</ul>
+<h4 id="DDOS"><a href="#DDOS" class="headerlink" title="DDOS"></a>DDOS</h4><p> DDOS 攻击，它在短时间内发起大量请求，耗尽服务器的资源，无法响应正常的访问，造成网站实质下线。 </p>
+<p>防范：</p>
+<p>1.防范 DDOS 的第一步，就是你要有一个备份网站，或者最低限度有一个临时主页。生产服务器万一下线了，可以立刻切换到备份网站，不至于毫无办法。 </p>
+<p>2.如果恶意请求有特征，对付起来很简单：直接拦截它就行了。 IP 地址和 User Agent 字段。比如，恶意请求都是从某个 IP 段发出的，那么把这个 IP 段封掉就行了。或者，它们的 User Agent 字段有特征（包含某个特定的词语），那就把带有这个词语的请求拦截。 </p>
+<p>3.带宽扩容，CDN网站的静态内容分发到多个服务器，用户就近访问，提高速度。 </p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/13/浏览器兼容/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/13/前端性能优化/" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器"><span class="nav-number">1.</span> <span class="nav-text">浏览器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存"><span class="nav-number">1.1.</span> <span class="nav-text">缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP缓存"><span class="nav-number">1.1.1.</span> <span class="nav-text">HTTP缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#强制缓存"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">强制缓存</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#协商缓存"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">协商缓存</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#私有缓存与共享缓存"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">私有缓存与共享缓存</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器缓存"><span class="nav-number">1.1.2.</span> <span class="nav-text">浏览器缓存</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器架构"><span class="nav-number">1.2.</span> <span class="nav-text">浏览器架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重绘与回流"><span class="nav-number">1.3.</span> <span class="nav-text">重绘与回流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#例子"><span class="nav-number">1.3.1.</span> <span class="nav-text">例子:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web-Worker"><span class="nav-number">1.4.</span> <span class="nav-text">Web Worker</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#限制"><span class="nav-number">1.4.1.</span> <span class="nav-text">限制:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存泄漏"><span class="nav-number">1.5.</span> <span class="nav-text">内存泄漏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#垃圾回收机制"><span class="nav-number">1.6.</span> <span class="nav-text">垃圾回收机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页面生命周期"><span class="nav-number">1.7.</span> <span class="nav-text">页面生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#页面渲染流程"><span class="nav-number">1.7.1.</span> <span class="nav-text">页面渲染流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#阻塞渲染"><span class="nav-number">1.7.2.</span> <span class="nav-text">阻塞渲染</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器"><span class="nav-number">2.</span> <span class="nav-text">服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#get-post"><span class="nav-number">2.1.</span> <span class="nav-text">get / post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SESSION"><span class="nav-number">2.2.</span> <span class="nav-text">SESSION</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安全"><span class="nav-number">2.3.</span> <span class="nav-text">安全</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DDOS"><span class="nav-number">2.3.1.</span> <span class="nav-text">DDOS</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
